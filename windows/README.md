@@ -87,6 +87,26 @@ vendor/firmware-only ones). `--save report.json` keeps the full data. The image
 will flicker while it sweeps; close other camera apps first. See
 [`../docs/vendor-controls.md`](../docs/vendor-controls.md) for what is known.
 
+## Experimental: read the ASIC register space
+
+The static flash dump does not contain the executing code (it is loaded by a
+boot ROM, see [`../docs/firmware-analysis.md`](../docs/firmware-analysis.md)).
+`asic_read_win.py` tries the one software-only avenue left: reading the chip's
+internal memory at run time through the unit 4 register window (`0x02` set
+address, `0x03` read byte), to see whether the running/descrambled code is
+mapped there.
+
+```
+py -3 windows\asic_read_win.py --range 0x2000 0x2100          # peek
+py -3 windows\asic_read_win.py --range 0x0000 0x2000 --out m.bin
+py -3 windows\asic_read_win.py --survey                       # sparse 64 KiB map
+```
+
+Read-only (it never writes a register value or the flash), but register reads
+can have side-effects, so it is range-bounded, opt-in, and should not be run
+while the camera is in use. If a window reads back as code (it flags
+`code-like` / a leading `LJMP`), dump it and send it over to disassemble.
+
 ## How it works
 
 | UVC concept | Windows mechanism |

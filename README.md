@@ -42,6 +42,7 @@ windows/flash_dump_win.py    Windows, read-only: back up the flash via XU unit 4
 windows/settings_win.py      Windows: show/set standard UVC controls (image, lens)
 windows/xu_watch_win.py      Windows: watch vendor XU selectors to decode them
 windows/xu_autodecode_win.py Windows: auto-map standard controls to XU selectors
+windows/asic_read_win.py     Windows: EXPERIMENTAL read of the ASIC register space
 windows/README.md            Windows usage (no Linux needed; needs comtypes)
 docs/vendor-controls.md      what the unit 3/4 vendor selectors are (and how to decode)
 docs/firmware-analysis.md    static analysis of the 128 KiB flash image

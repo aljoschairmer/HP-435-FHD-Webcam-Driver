@@ -147,7 +147,12 @@ test hooks; the flash update/read interface; and that the image is an
 
 **Open (not recoverable from this static dump):**
 - The executable code itself — the dump is not flat in-place code (§3). Would
-  need the boot ROM / run-time load map, or on-device tracing.
+  need the boot ROM / run-time load map, or on-device tracing. One software-only
+  avenue worth trying: read the chip's internal memory at run time through the
+  unit 4 ASIC register window (`0x02` set address, `0x03` read byte) to see
+  whether the descrambled/running code is mapped there. `windows/asic_read_win.py`
+  does this (read-only, but see its safety note — register reads can have
+  side-effects, so it is range-bounded and opt-in).
 - The exact command set of the HID JSON protocol beyond `device_info` — capture
   Poly Lens traffic (USBPcap) to enumerate commands and payloads.
 - The meaning of individual vendor XU selectors `0x04`,`0x05`,`0x11`,`0x12`,
