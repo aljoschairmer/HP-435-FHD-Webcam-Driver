@@ -170,6 +170,10 @@ class XUWinError(Exception):
     pass
 
 
+# Extension units are reported as this node type by conforming UVC drivers.
+KSNODETYPE_DEV_SPECIFIC = GUID("{941C7AC0-C559-11D0-8A2B-00A0C9255AC1}")
+
+
 def _check(hr: int, what: str) -> None:
     if hr < 0:
         raise OSError(hr & 0xFFFFFFFF, f"{what}: HRESULT 0x{hr & 0xFFFFFFFF:08X}")
@@ -239,8 +243,9 @@ class WinXU:
         self.vid, self.pid = vid, pid
         self.device_path = None
         self._topo = None
-        self._nodes: dict[str, int] = {}
+        self._num_nodes = 0
         self._ksctl: dict[int, object] = {}
+        self._xu_node: dict[str, int] = {}   # xu guid -> resolved node id
 
     def open(self):
         comtypes.CoInitialize()
@@ -249,11 +254,7 @@ class WinXU:
         self._topo = topo
         n = ULONG(0)
         _check(topo.get_NumNodes(byref(n)), "get_NumNodes")
-        for i in range(n.value):
-            g = GUID()
-            if topo.get_NodeType(i, byref(g)) < 0:
-                continue
-            self._nodes.setdefault(str(g).lower(), i)
+        self._num_nodes = n.value
         return self
 
     def __enter__(self):
@@ -262,15 +263,16 @@ class WinXU:
     def __exit__(self, *exc):
         comtypes.CoUninitialize()
 
-    def nodes(self) -> dict:
-        return dict(self._nodes)
+    @property
+    def num_nodes(self) -> int:
+        return self._num_nodes
 
-    def node_for_guid(self, xu_guid: str) -> int:
-        key = str(GUID(xu_guid)).lower()
-        if key not in self._nodes:
-            raise XUWinError(f"extension unit {xu_guid} not in topology; "
-                             f"nodes present: {list(self._nodes)}")
-        return self._nodes[key]
+    def node_type(self, node_id: int) -> str:
+        """Diagnostic: the driver-reported node-type GUID (may be unreliable)."""
+        g = GUID()
+        if self._topo.get_NodeType(node_id, byref(g)) < 0:
+            return "<error>"
+        return str(g)
 
     def _ks(self, node_id: int):
         if node_id not in self._ksctl:
@@ -283,8 +285,7 @@ class WinXU:
             self._ksctl[node_id] = ctypes.cast(ppv, POINTER(IKsControl))
         return self._ksctl[node_id]
 
-    def _prop(self, xu_guid, selector, flags, buf, size) -> int:
-        node_id = self.node_for_guid(xu_guid)
+    def _prop_on(self, node_id, xu_guid, selector, flags, buf, size) -> int:
         ks = self._ks(node_id)
         node = KSP_NODE()
         node.Property.Set = GUID(xu_guid)
@@ -295,8 +296,42 @@ class WinXU:
         data = ctypes.cast(buf, c_void_p) if buf is not None else None
         hr = ks.KsProperty(ctypes.cast(byref(node), POINTER(KSPROPERTY)),
                            sizeof(node), data, size, byref(returned))
-        _check(hr, f"KsProperty sel=0x{selector:02x}")
+        _check(hr, f"KsProperty node={node_id} sel=0x{selector:02x}")
         return returned.value
+
+    def supporting_nodes(self, xu_guid: str) -> list:
+        """Node ids that accept this extension unit's property set.
+
+        Tries EXTENSION_UNIT_INFO (property id 0) on every node; only the node
+        that actually hosts this XU responds without error. This is more robust
+        than matching get_NodeType, which some drivers report unreliably.
+        """
+        found = []
+        for node_id in range(self._num_nodes):
+            buf = (ctypes.c_ubyte * 32)()
+            try:
+                self._prop_on(node_id, xu_guid, KSPROPERTY_EXTENSION_UNIT_INFO,
+                              KSPROPERTY_TYPE_GET, buf, 32)
+                found.append(node_id)
+            except OSError:
+                continue
+        return found
+
+    def node_for_guid(self, xu_guid: str) -> int:
+        key = str(GUID(xu_guid)).lower()
+        if key in self._xu_node:
+            return self._xu_node[key]
+        nodes = self.supporting_nodes(xu_guid)
+        if not nodes:
+            raise XUWinError(
+                f"no topology node accepts extension unit {xu_guid} "
+                f"(checked nodes 0..{self._num_nodes - 1})")
+        self._xu_node[key] = nodes[0]
+        return nodes[0]
+
+    def _prop(self, xu_guid, selector, flags, buf, size) -> int:
+        return self._prop_on(self.node_for_guid(xu_guid), xu_guid,
+                             selector, flags, buf, size)
 
     def get(self, xu_guid: str, selector: int, size: int) -> bytes:
         buf = (ctypes.c_ubyte * size)()

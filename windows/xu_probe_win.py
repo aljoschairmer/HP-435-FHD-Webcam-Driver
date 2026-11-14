@@ -31,12 +31,13 @@ KNOWN = {
 
 def probe_xu(cam: WinXU, label: str, guid: str) -> None:
     print(f"\n=== {label}  {guid} ===")
-    try:
-        node = cam.node_for_guid(guid)
-    except XUWinError as e:
-        print(f"  not present: {e}")
+    nodes = cam.supporting_nodes(guid)
+    if not nodes:
+        print(f"  no topology node accepts this extension unit "
+              f"(checked 0..{cam.num_nodes - 1})")
         return
-    print(f"  topology node id: {node}")
+    print(f"  responding node id(s): {nodes}")
+    node = nodes[0]
     try:
         info = cam.get_info(guid)
         print(f"  EXTENSION_UNIT_INFO: {info.hex(' ')}")
@@ -68,7 +69,9 @@ def main() -> int:
     try:
         with WinXU(VID, PID) as cam:
             print(f"Device path: {cam.device_path}")
-            print(f"Topology nodes (type GUID -> id): {cam.nodes()}")
+            print(f"Topology: {cam.num_nodes} nodes")
+            for i in range(cam.num_nodes):
+                print(f"  node {i}: type {cam.node_type(i)}")
             probe_xu(cam, "Unit 3 (HP)", XU_HP)
             probe_xu(cam, "Unit 4 (Sunplus)", XU_SUNPLUS)
     except XUWinError as e:
