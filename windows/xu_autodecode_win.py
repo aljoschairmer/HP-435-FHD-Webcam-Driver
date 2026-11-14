@@ -94,6 +94,7 @@ def autodecode(cam: WinXU, layout: dict, settle: float) -> dict:
 
         baseline = snapshot(cam, layout)
         observed = {}  # "stimulus" -> [(unit, sel, old, new), ...]
+        applied = []   # [(requested, read back)] to prove the stimulus was real
 
         # sweep manual min/max
         for tv in test_values(ctl):
@@ -103,6 +104,10 @@ def autodecode(cam: WinXU, layout: dict, settle: float) -> dict:
                 observed[f"set={tv}"] = [("", "", "", f"<set failed: {e}>")]
                 continue
             time.sleep(settle)
+            try:
+                applied.append((tv, read_control(ctl)[0]))
+            except PROBE_ERRORS:
+                applied.append((tv, None))
             changes = diff(baseline, snapshot(cam, layout))
             if changes:
                 observed[f"manual={tv}"] = changes
@@ -119,14 +124,18 @@ def autodecode(cam: WinXU, layout: dict, settle: float) -> dict:
                 pass
 
         # restore
+        restored = None
         try:
             set_control(ctl, orig_val, orig_flags or FLAG_MANUAL)
+            time.sleep(settle)
+            restored = read_control(ctl)[0]
         except PROBE_ERRORS:
             pass
 
         report[ctl.name] = {
             "range": [ctl.min, ctl.max], "step": ctl.step,
             "default": ctl.default, "orig": [orig_val, orig_flags],
+            "applied": applied, "restored": restored,
             "observed": {k: [[u, (f"0x{s:02x}" if isinstance(s, int) else s), o, n]
                              for (u, s, o, n) in v]
                          for k, v in observed.items()},
@@ -139,6 +148,13 @@ def _print_control_result(ctl: Control, r: dict) -> None:
     print(f"\n[{ctl.name}]  range {r['range'][0]}..{r['range'][1]} "
           f"default {r['default']}"
           + ("  (auto-capable)" if ctl.has_auto else ""))
+    if r.get("applied"):
+        parts = []
+        for req, got in r["applied"]:
+            mark = "" if got == req else "  <-- NOT applied"
+            parts.append(f"set {req} -> read {got}{mark}")
+        print("   stimulus: " + "; ".join(parts)
+              + f"; restored to {r.get('restored')} (orig {r['orig'][0]})")
     if not r["observed"]:
         print("   no XU selector changed")
         return

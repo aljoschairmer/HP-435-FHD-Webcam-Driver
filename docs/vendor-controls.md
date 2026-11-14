@@ -32,6 +32,29 @@ Selectors `0x01`, `0x02`, `0x03`, each 1 byte, all read `00` at rest. Likely an
 HP/Poly-specific extension (e.g. a feature toggle or a Poly Lens handshake).
 Purpose not yet established.
 
+## Result of the automatic sweep
+
+`windows/xu_autodecode_win.py` drove all 11 standard controls the camera exposes
+(brightness, contrast, hue, saturation, sharpness, gamma, white balance + auto,
+backlight compensation, power-line frequency, exposure + auto, focus + auto) to
+their min/max and toggled auto, while watching 20 vendor selectors
+(unit 3: 3, unit 4: 17).
+
+**No vendor selector changed for any standard control.** The standard controls
+are handled by the regular UVC units (Processing Unit, Camera Terminal) inside the
+firmware; the vendor extension units are *separate channels*, not mirrors of the
+standard settings:
+
+- **Unit 4** behaves as a service channel: firmware update, flash read, ASIC
+  register access (see the confirmed table above), plus vendor-only values.
+- **Unit 3** is a small HP-specific extension (3 controls).
+
+Consequence: the remaining selectors can only be decoded through features that
+have **no** standard UVC control — i.e. what Poly Lens toggles — or by capturing
+what Poly Lens sends (Method D below). Selectors that act as write-triggered
+commands may never change on GET_CUR at all, which is why the USB capture is the
+more reliable route.
+
 ## What is still unknown
 
 Unit 4 selectors that are **not** part of the update protocol, with their
@@ -103,6 +126,23 @@ python3 tools/xu_probe.py
 ```
 
 The probe now prints cur/min/max/res/def per selector where available.
+
+### Method D — capture what Poly Lens sends (Windows, most reliable)
+
+Poly Lens is HP's management app for this camera. Whatever it toggles is sent
+as UVC class requests to the extension units, so capturing them shows the
+selector *and* the payload directly — including command-style selectors that
+never show up as a GET_CUR change:
+
+1. Install Wireshark with the USBPcap component.
+2. Start a capture on the USBPcap root hub the camera is connected to.
+3. In Poly Lens, change one feature at a time and note the time.
+4. Filter for extension-unit SET_CUR requests:
+   `usb.bmRequestType == 0x21 && usb.setup.bRequest == 0x01`
+   In UVC, `wValue` high byte = selector, `wIndex` high byte = unit ID
+   (3 or 4), low byte = interface 0.
+
+Do not use Poly Lens's firmware-update function while experimenting.
 
 ### Method C — correlate with ASIC registers (advanced)
 
