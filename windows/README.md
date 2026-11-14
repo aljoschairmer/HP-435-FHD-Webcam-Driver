@@ -41,6 +41,25 @@ hashes mean the read is stable. `--size` defaults to 128 KiB (`0x20000`), the
 full flash of this camera: reads beyond that wrap around to address 0. See
 [`../docs/windows-probe.md`](../docs/windows-probe.md) for the flash layout.
 
+## Camera settings (safe, read / write standard controls)
+
+```
+py -3 windows\settings_win.py
+```
+
+Lists the standard UVC controls the driver exposes — image controls
+(brightness, contrast, white balance, ...) via `IAMVideoProcAmp` and
+lens/exposure controls (exposure, focus, ...) via `IAMCameraControl` — with each
+control's current value, auto/manual mode, and range/step/default.
+
+Optionally change one (these are the same knobs any camera app uses; the
+firmware is not touched):
+
+```
+py -3 windows\settings_win.py --set brightness 140
+py -3 windows\settings_win.py --set focus auto
+```
+
 ## How it works
 
 | UVC concept | Windows mechanism |

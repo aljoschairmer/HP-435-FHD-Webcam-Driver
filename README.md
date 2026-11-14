@@ -39,6 +39,7 @@ tools/flash_dump.py          Linux, read-only: back up the SPI flash via XU unit
 windows/uvcxu_win.py         Windows helper: XU access via DirectShow IKsControl
 windows/xu_probe_win.py      Windows, read-only: probe XU controls
 windows/flash_dump_win.py    Windows, read-only: back up the flash via XU unit 4
+windows/settings_win.py      Windows: show/set standard UVC controls (image, lens)
 windows/README.md            Windows usage (no Linux needed; needs comtypes)
 ```
 

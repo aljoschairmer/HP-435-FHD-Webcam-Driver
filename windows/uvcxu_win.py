@@ -285,6 +285,10 @@ class WinXU:
     def num_nodes(self) -> int:
         return self._num_nodes
 
+    def query(self, interface):
+        """QueryInterface on the capture filter object (e.g. IAMVideoProcAmp)."""
+        return self._topo.QueryInterface(interface)
+
     def node_type(self, node_id: int) -> str:
         """Diagnostic: the driver-reported node-type GUID (may be unreliable)."""
         g = GUID()
