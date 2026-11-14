@@ -26,7 +26,7 @@ from ctypes import POINTER, byref, c_int, c_void_p, c_wchar_p, sizeof
 from ctypes.wintypes import ULONG
 
 import comtypes
-from comtypes import GUID, COMMETHOD, HRESULT, IUnknown, CoCreateInstance
+from comtypes import GUID, COMMETHOD, HRESULT, IUnknown, CoCreateInstance, COMError
 from comtypes.automation import VARIANT
 
 # ---- CLSIDs / IIDs ---------------------------------------------------------
@@ -173,9 +173,27 @@ class XUWinError(Exception):
 # Extension units are reported as this node type by conforming UVC drivers.
 KSNODETYPE_DEV_SPECIFIC = GUID("{941C7AC0-C559-11D0-8A2B-00A0C9255AC1}")
 
+# HRESULT for "the specified property set is not present in the object": the
+# node does not host this extension unit at all. Any other failure means the XU
+# property set IS present but that particular selector/length was rejected.
+HRESULT_SET_NOT_PRESENT = 0x80070492
+
+# comtypes raises COMError on a failed HRESULT; OSError may surface from ctypes.
+PROBE_ERRORS = (COMError, OSError)
+
+
+def hresult_of(exc) -> int:
+    hr = getattr(exc, "hresult", None)
+    if hr is None:
+        try:
+            hr = exc.args[0]
+        except Exception:
+            hr = -1
+    return hr & 0xFFFFFFFF
+
 
 def _check(hr: int, what: str) -> None:
-    if hr < 0:
+    if hr is not None and hr < 0:
         raise OSError(hr & 0xFFFFFFFF, f"{what}: HRESULT 0x{hr & 0xFFFFFFFF:08X}")
 
 
@@ -300,11 +318,14 @@ class WinXU:
         return returned.value
 
     def supporting_nodes(self, xu_guid: str) -> list:
-        """Node ids that accept this extension unit's property set.
+        """Node ids whose KS object hosts this extension unit's property set.
 
-        Tries EXTENSION_UNIT_INFO (property id 0) on every node; only the node
-        that actually hosts this XU responds without error. This is more robust
-        than matching get_NodeType, which some drivers report unreliably.
+        Tries EXTENSION_UNIT_INFO (property id 0) on every node. A node that
+        does not host this XU fails with HRESULT_SET_NOT_PRESENT; any other
+        outcome (success, or a different error such as the selector being
+        unsupported) means the property set is present on that node. This is
+        more robust than matching get_NodeType, which some drivers report
+        unreliably.
         """
         found = []
         for node_id in range(self._num_nodes):
@@ -313,8 +334,9 @@ class WinXU:
                 self._prop_on(node_id, xu_guid, KSPROPERTY_EXTENSION_UNIT_INFO,
                               KSPROPERTY_TYPE_GET, buf, 32)
                 found.append(node_id)
-            except OSError:
-                continue
+            except PROBE_ERRORS as e:
+                if hresult_of(e) != HRESULT_SET_NOT_PRESENT:
+                    found.append(node_id)  # set present, id 0 just not readable
         return found
 
     def node_for_guid(self, xu_guid: str) -> int:
@@ -355,6 +377,6 @@ class WinXU:
             try:
                 self.get(xu_guid, selector, sz)
                 return sz
-            except OSError:
+            except PROBE_ERRORS:
                 continue
         return None

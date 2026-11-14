@@ -22,7 +22,7 @@ import struct
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from uvcxu_win import WinXU, XUWinError  # noqa: E402
+from uvcxu_win import WinXU, XUWinError, PROBE_ERRORS  # noqa: E402
 
 VID, PID = 0x03F0, 0x794A
 XU_SUNPLUS = "{63610682-5070-49AB-B8CC-B3855E8D221D}"
@@ -69,7 +69,7 @@ def main() -> int:
                 try:
                     cam.set(XU_SUNPLUS, SEL_READ_ADDR, struct.pack("<I", addr))
                     chunk = cam.get(XU_SUNPLUS, SEL_READ_CHUNK, CHUNK)
-                except OSError as e:
+                except PROBE_ERRORS as e:
                     print(f"\nRead failed at 0x{addr:06x}: {e}", file=sys.stderr)
                     print("Aborting. Nothing was written to the device.",
                           file=sys.stderr)

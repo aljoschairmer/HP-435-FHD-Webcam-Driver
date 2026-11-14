@@ -15,7 +15,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from uvcxu_win import WinXU, XUWinError  # noqa: E402
+from uvcxu_win import WinXU, XUWinError, PROBE_ERRORS  # noqa: E402
 
 VID, PID = 0x03F0, 0x794A
 
@@ -41,7 +41,7 @@ def probe_xu(cam: WinXU, label: str, guid: str) -> None:
     try:
         info = cam.get_info(guid)
         print(f"  EXTENSION_UNIT_INFO: {info.hex(' ')}")
-    except OSError as e:
+    except PROBE_ERRORS as e:
         print(f"  EXTENSION_UNIT_INFO: <error {e}>")
 
     for sel in range(0x01, 0x18):
@@ -60,7 +60,7 @@ def probe_xu(cam: WinXU, label: str, guid: str) -> None:
         try:
             val = cam.get(guid, sel, size)
             line += f"   cur={val.hex(' ')}"
-        except OSError as e:
+        except PROBE_ERRORS as e:
             line += f"   cur=<error {e}>"
         print(line)
 
