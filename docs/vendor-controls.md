@@ -40,6 +40,10 @@ backlight compensation, power-line frequency, exposure + auto, focus + auto) to
 their min/max and toggled auto, while watching 20 vendor selectors
 (unit 3: 3, unit 4: 17).
 
+A second run read every control back after setting it: all 22 stimuli (min and
+max for each of the 11 controls) were applied by the camera, so the result is
+not an artefact of ignored writes.
+
 **No vendor selector changed for any standard control.** The standard controls
 are handled by the regular UVC units (Processing Unit, Camera Terminal) inside the
 firmware; the vendor extension units are *separate channels*, not mirrors of the

@@ -128,7 +128,7 @@ def autodecode(cam: WinXU, layout: dict, settle: float) -> dict:
         try:
             set_control(ctl, orig_val, orig_flags or FLAG_MANUAL)
             time.sleep(settle)
-            restored = read_control(ctl)[0]
+            restored = list(read_control(ctl))   # [value, flags]
         except PROBE_ERRORS:
             pass
 
@@ -144,6 +144,14 @@ def autodecode(cam: WinXU, layout: dict, settle: float) -> dict:
     return report
 
 
+def _mode(flags: int) -> str:
+    if flags & FLAG_AUTO:
+        return "auto"
+    if flags & FLAG_MANUAL:
+        return "manual"
+    return f"0x{flags:x}"
+
+
 def _print_control_result(ctl: Control, r: dict) -> None:
     print(f"\n[{ctl.name}]  range {r['range'][0]}..{r['range'][1]} "
           f"default {r['default']}"
@@ -153,8 +161,15 @@ def _print_control_result(ctl: Control, r: dict) -> None:
         for req, got in r["applied"]:
             mark = "" if got == req else "  <-- NOT applied"
             parts.append(f"set {req} -> read {got}{mark}")
+        rest = r.get("restored")
+        if rest:
+            rest_s = f"{rest[0]} [{_mode(rest[1])}]"
+            if ctl.has_auto and (r["orig"][1] & FLAG_AUTO) and not (rest[1] & FLAG_AUTO):
+                rest_s += "  <-- auto NOT restored"
+        else:
+            rest_s = "?"
         print("   stimulus: " + "; ".join(parts)
-              + f"; restored to {r.get('restored')} (orig {r['orig'][0]})")
+              + f"; restored to {rest_s} (orig {r['orig'][0]} [{_mode(r['orig'][1])}])")
     if not r["observed"]:
         print("   no XU selector changed")
         return
