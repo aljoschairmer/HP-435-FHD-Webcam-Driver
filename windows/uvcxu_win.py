@@ -10,22 +10,24 @@ node. Background:
 
 Requires:  pip install comtypes   (Python 3.8+, Windows)
 
-Read-only by intent: the shipped tools use get()/get_info()/probe_size() and only
-set() the read-address selector. Nothing here enters download or write mode.
+All COM interfaces used here are declared locally with their methods as plain
+["in"] parameters, so every call returns the raw HRESULT and we manage buffers
+and out-pointers by hand. This avoids depending on which helper interfaces a
+given comtypes build happens to export.
 
-NOTE: This has not been executed in-house. If a COM call raises, capture the full
-traceback and HRESULT; the interface vtable layout is the most likely thing to fix.
+Read-only by intent: the shipped tools use get()/get_info()/probe_size() and
+only set() the read-address selector. Nothing here enters download/write mode.
 """
 
 from __future__ import annotations
 
 import ctypes
-from ctypes import POINTER, byref, c_void_p, c_ulong, sizeof
+from ctypes import POINTER, byref, c_int, c_void_p, c_wchar_p, sizeof
 from ctypes.wintypes import ULONG
 
 import comtypes
 from comtypes import GUID, COMMETHOD, HRESULT, IUnknown, CoCreateInstance
-from comtypes.persist import IPersistStream, IPropertyBag
+from comtypes.automation import VARIANT
 
 # ---- CLSIDs / IIDs ---------------------------------------------------------
 
@@ -34,9 +36,12 @@ CLSID_VideoInputDeviceCategory = GUID("{860BB310-5D01-11D0-BD3B-00A0C911CE86}")
 IID_ICreateDevEnum = GUID("{29840822-5B84-11D0-BD3B-00A0C911CE86}")
 IID_IEnumMoniker = GUID("{00000102-0000-0000-C000-000000000046}")
 IID_IMoniker = GUID("{0000000F-0000-0000-C000-000000000046}")
+IID_IPropertyBag = GUID("{55272A00-42CB-11CE-8135-00AA004BB851}")
 IID_IKsControl = GUID("{28F54685-06FD-11D2-B27A-00A0C9223196}")
 IID_IKsTopologyInfo = GUID("{720D4AC0-7533-11D0-A5D6-28DB04C10000}")
 IID_IBaseFilter = GUID("{56A86895-0AD4-11CE-B03A-0020AF0BA770}")
+
+S_OK = 0
 
 # KS property flags
 KSPROPERTY_TYPE_GET = 0x00000001
@@ -57,36 +62,55 @@ class KSP_NODE(ctypes.Structure):
     _fields_ = [("Property", KSPROPERTY), ("NodeId", ULONG), ("Reserved", ULONG)]
 
 
-# ---- COM interfaces (only the methods we call; vtable order matters) -------
+# ---- COM interfaces (methods declared ["in"]; we call them manually) -------
 
 class IEnumMoniker(IUnknown):
     _iid_ = IID_IEnumMoniker
     _methods_ = [
         COMMETHOD([], HRESULT, "Next",
                   (["in"], ULONG, "celt"),
-                  (["out"], POINTER(c_void_p), "rgelt"),
-                  (["out"], POINTER(ULONG), "pceltFetched")),
+                  (["in"], POINTER(c_void_p), "rgelt"),
+                  (["in"], POINTER(ULONG), "pceltFetched")),
         COMMETHOD([], HRESULT, "Skip", (["in"], ULONG, "celt")),
         COMMETHOD([], HRESULT, "Reset"),
     ]
 
 
-class IMoniker(IPersistStream):
-    # IMoniker : IPersistStream : IPersist : IUnknown
-    # Only BindToObject and BindToStorage are needed; they are the first two
-    # IMoniker-specific methods, so later methods can be omitted safely.
+class IMoniker(IUnknown):
+    # IMoniker : IPersistStream : IPersist : IUnknown.
+    # The 5 inherited methods (GetClassID, IsDirty, Load, Save, GetSizeMax) are
+    # declared as placeholders so BindToObject/BindToStorage land at the right
+    # vtable slots. Only the latter two are ever called.
     _iid_ = IID_IMoniker
     _methods_ = [
+        COMMETHOD([], HRESULT, "_GetClassID", (["in"], c_void_p, "p")),
+        COMMETHOD([], HRESULT, "_IsDirty"),
+        COMMETHOD([], HRESULT, "_Load", (["in"], c_void_p, "p")),
+        COMMETHOD([], HRESULT, "_Save", (["in"], c_void_p, "p"), (["in"], c_int, "f")),
+        COMMETHOD([], HRESULT, "_GetSizeMax", (["in"], c_void_p, "p")),
         COMMETHOD([], HRESULT, "BindToObject",
                   (["in"], c_void_p, "pbc"),
                   (["in"], c_void_p, "pmkToLeft"),
                   (["in"], POINTER(GUID), "riidResult"),
-                  (["out"], POINTER(c_void_p), "ppvResult")),
+                  (["in"], POINTER(c_void_p), "ppvResult")),
         COMMETHOD([], HRESULT, "BindToStorage",
                   (["in"], c_void_p, "pbc"),
                   (["in"], c_void_p, "pmkToLeft"),
                   (["in"], POINTER(GUID), "riid"),
-                  (["out"], POINTER(c_void_p), "ppvObj")),
+                  (["in"], POINTER(c_void_p), "ppvObj")),
+    ]
+
+
+class IPropertyBag(IUnknown):
+    _iid_ = IID_IPropertyBag
+    _methods_ = [
+        COMMETHOD([], HRESULT, "Read",
+                  (["in"], c_wchar_p, "pszPropName"),
+                  (["in"], POINTER(VARIANT), "pVar"),
+                  (["in"], c_void_p, "pErrorLog")),
+        COMMETHOD([], HRESULT, "Write",
+                  (["in"], c_wchar_p, "pszPropName"),
+                  (["in"], POINTER(VARIANT), "pVar")),
     ]
 
 
@@ -95,7 +119,7 @@ class ICreateDevEnum(IUnknown):
     _methods_ = [
         COMMETHOD([], HRESULT, "CreateClassEnumerator",
                   (["in"], POINTER(GUID), "clsidDeviceClass"),
-                  (["out"], POINTER(POINTER(IEnumMoniker)), "ppEnum"),
+                  (["in"], POINTER(POINTER(IEnumMoniker)), "ppEnum"),
                   (["in"], ULONG, "dwFlags")),
     ]
 
@@ -106,44 +130,49 @@ class IKsControl(IUnknown):
         COMMETHOD([], HRESULT, "KsProperty",
                   (["in"], POINTER(KSPROPERTY), "Property"),
                   (["in"], ULONG, "PropertyLength"),
-                  (["in", "out"], c_void_p, "PropertyData"),
+                  (["in"], c_void_p, "PropertyData"),
                   (["in"], ULONG, "DataLength"),
-                  (["out"], POINTER(ULONG), "BytesReturned")),
+                  (["in"], POINTER(ULONG), "BytesReturned")),
         COMMETHOD([], HRESULT, "KsMethod",
                   (["in"], c_void_p, "Method"), (["in"], ULONG, "MethodLength"),
-                  (["in", "out"], c_void_p, "MethodData"), (["in"], ULONG, "DataLength"),
-                  (["out"], POINTER(ULONG), "BytesReturned")),
+                  (["in"], c_void_p, "MethodData"), (["in"], ULONG, "DataLength"),
+                  (["in"], POINTER(ULONG), "BytesReturned")),
         COMMETHOD([], HRESULT, "KsEvent",
                   (["in"], c_void_p, "Event"), (["in"], ULONG, "EventLength"),
-                  (["in", "out"], c_void_p, "EventData"), (["in"], ULONG, "DataLength"),
-                  (["out"], POINTER(ULONG), "BytesReturned")),
+                  (["in"], c_void_p, "EventData"), (["in"], ULONG, "DataLength"),
+                  (["in"], POINTER(ULONG), "BytesReturned")),
     ]
 
 
 class IKsTopologyInfo(IUnknown):
     _iid_ = IID_IKsTopologyInfo
     _methods_ = [
-        COMMETHOD([], HRESULT, "get_NumCategories", (["out"], POINTER(ULONG), "n")),
+        COMMETHOD([], HRESULT, "get_NumCategories", (["in"], POINTER(ULONG), "n")),
         COMMETHOD([], HRESULT, "get_Category",
-                  (["in"], ULONG, "index"), (["out"], POINTER(GUID), "cat")),
-        COMMETHOD([], HRESULT, "get_NumNodes", (["out"], POINTER(ULONG), "n")),
+                  (["in"], ULONG, "index"), (["in"], POINTER(GUID), "cat")),
+        COMMETHOD([], HRESULT, "get_NumNodes", (["in"], POINTER(ULONG), "n")),
         COMMETHOD([], HRESULT, "get_NodeType",
-                  (["in"], ULONG, "index"), (["out"], POINTER(GUID), "typ")),
+                  (["in"], ULONG, "index"), (["in"], POINTER(GUID), "typ")),
         COMMETHOD([], HRESULT, "get_NodeName",
-                  (["in"], ULONG, "index"), (["in", "out"], c_void_p, "buf"),
-                  (["in"], ULONG, "buflen"), (["out"], POINTER(ULONG), "used")),
-        COMMETHOD([], HRESULT, "get_NumConnections", (["out"], POINTER(ULONG), "n")),
+                  (["in"], ULONG, "index"), (["in"], c_void_p, "buf"),
+                  (["in"], ULONG, "buflen"), (["in"], POINTER(ULONG), "used")),
+        COMMETHOD([], HRESULT, "get_NumConnections", (["in"], POINTER(ULONG), "n")),
         COMMETHOD([], HRESULT, "get_ConnectionInfo",
-                  (["in"], ULONG, "index"), (["in", "out"], c_void_p, "info")),
+                  (["in"], ULONG, "index"), (["in"], c_void_p, "info")),
         COMMETHOD([], HRESULT, "CreateNodeInstance",
                   (["in"], ULONG, "index"),
                   (["in"], POINTER(GUID), "iid"),
-                  (["out"], POINTER(c_void_p), "ppv")),
+                  (["in"], POINTER(c_void_p), "ppv")),
     ]
 
 
 class XUWinError(Exception):
     pass
+
+
+def _check(hr: int, what: str) -> None:
+    if hr < 0:
+        raise OSError(hr & 0xFFFFFFFF, f"{what}: HRESULT 0x{hr & 0xFFFFFFFF:08X}")
 
 
 # ---- Device discovery ------------------------------------------------------
@@ -153,38 +182,50 @@ def _match_device_path(path: str, vid: int, pid: int) -> bool:
 
 
 def _bind_filter(vid: int, pid: int):
-    """Return (IBaseFilter-as-IUnknown, device_path) for the first match."""
+    """Return (IKsTopologyInfo, device_path) for the first matching device."""
     dev_enum = CoCreateInstance(CLSID_SystemDeviceEnum, interface=ICreateDevEnum)
-    try:
-        enum = dev_enum.CreateClassEnumerator(
-            byref(CLSID_VideoInputDeviceCategory), 0)
-    except TypeError:
-        # some comtypes builds return the out-param directly
-        enum = POINTER(IEnumMoniker)()
-        dev_enum.CreateClassEnumerator(
-            byref(CLSID_VideoInputDeviceCategory), byref(enum), 0)
+    enum = POINTER(IEnumMoniker)()
+    hr = dev_enum.CreateClassEnumerator(
+        byref(CLSID_VideoInputDeviceCategory), byref(enum), 0)
+    _check(hr, "CreateClassEnumerator")
     if not enum:
-        raise XUWinError("no video capture devices (CreateClassEnumerator empty)")
+        raise XUWinError("no video capture devices present")
 
     while True:
-        fetched = ULONG(0)
         raw = c_void_p()
+        fetched = ULONG(0)
         hr = enum.Next(1, byref(raw), byref(fetched))
-        if hr != 0 or not fetched.value or not raw.value:
+        if hr != S_OK or not fetched.value or not raw.value:
             break
         moniker = ctypes.cast(raw, POINTER(IMoniker))
 
-        bag_ptr = moniker.BindToStorage(None, None, byref(IPropertyBag._iid_))
+        bag_ptr = c_void_p()
+        hr = moniker.BindToStorage(None, None, byref(IID_IPropertyBag),
+                                   byref(bag_ptr))
+        if hr < 0 or not bag_ptr.value:
+            continue
         bag = ctypes.cast(bag_ptr, POINTER(IPropertyBag))
-        try:
-            path = bag.Read("DevicePath", None)
-        except Exception:
+        var = VARIANT()
+        if bag.Read("DevicePath", byref(var), None) < 0:
             continue
-        if not _match_device_path(str(path), vid, pid):
+        path = var.value
+        if not path or not _match_device_path(str(path), vid, pid):
             continue
-        obj = moniker.BindToObject(None, None, byref(IID_IBaseFilter))
-        base = ctypes.cast(obj, POINTER(IUnknown))
-        return base, str(path)
+
+        obj = c_void_p()
+        hr = moniker.BindToObject(None, None, byref(IID_IKsTopologyInfo),
+                                  byref(obj))
+        if hr < 0 or not obj.value:
+            # Fall back to IBaseFilter then QI, if direct bind is unsupported.
+            obj = c_void_p()
+            hr = moniker.BindToObject(None, None, byref(IID_IBaseFilter),
+                                      byref(obj))
+            _check(hr, "BindToObject(IBaseFilter)")
+            base = ctypes.cast(obj, POINTER(IUnknown))
+            topo = base.QueryInterface(IKsTopologyInfo)
+            return topo, str(path)
+        topo = ctypes.cast(obj, POINTER(IKsTopologyInfo))
+        return topo, str(path)
 
     raise XUWinError(f"camera {vid:04x}:{pid:04x} not found among capture devices")
 
@@ -199,18 +240,19 @@ class WinXU:
         self.device_path = None
         self._topo = None
         self._nodes: dict[str, int] = {}
-        self._ksctl: dict[int, IKsControl] = {}
+        self._ksctl: dict[int, object] = {}
 
     def open(self):
         comtypes.CoInitialize()
-        base, path = _bind_filter(self.vid, self.pid)
+        topo, path = _bind_filter(self.vid, self.pid)
         self.device_path = path
-        self._topo = base.QueryInterface(IKsTopologyInfo)
+        self._topo = topo
         n = ULONG(0)
-        self._topo.get_NumNodes(byref(n))
+        _check(topo.get_NumNodes(byref(n)), "get_NumNodes")
         for i in range(n.value):
             g = GUID()
-            self._topo.get_NodeType(i, byref(g))
+            if topo.get_NodeType(i, byref(g)) < 0:
+                continue
             self._nodes.setdefault(str(g).lower(), i)
         return self
 
@@ -230,13 +272,14 @@ class WinXU:
                              f"nodes present: {list(self._nodes)}")
         return self._nodes[key]
 
-    def _ks(self, node_id: int) -> IKsControl:
+    def _ks(self, node_id: int):
         if node_id not in self._ksctl:
             ppv = c_void_p()
-            self._topo.CreateNodeInstance(node_id, byref(IID_IKsControl),
-                                          byref(ppv))
+            _check(self._topo.CreateNodeInstance(node_id, byref(IID_IKsControl),
+                                                 byref(ppv)),
+                   f"CreateNodeInstance(node {node_id})")
             if not ppv.value:
-                raise XUWinError(f"CreateNodeInstance failed for node {node_id}")
+                raise XUWinError(f"CreateNodeInstance returned null for node {node_id}")
             self._ksctl[node_id] = ctypes.cast(ppv, POINTER(IKsControl))
         return self._ksctl[node_id]
 
@@ -250,8 +293,9 @@ class WinXU:
         node.NodeId = node_id
         returned = ULONG(0)
         data = ctypes.cast(buf, c_void_p) if buf is not None else None
-        ks.KsProperty(ctypes.cast(byref(node), POINTER(KSPROPERTY)),
-                      sizeof(node), data, size, byref(returned))
+        hr = ks.KsProperty(ctypes.cast(byref(node), POINTER(KSPROPERTY)),
+                           sizeof(node), data, size, byref(returned))
+        _check(hr, f"KsProperty sel=0x{selector:02x}")
         return returned.value
 
     def get(self, xu_guid: str, selector: int, size: int) -> bytes:
