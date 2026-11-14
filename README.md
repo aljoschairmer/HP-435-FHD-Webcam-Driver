@@ -34,9 +34,17 @@ docs/findings.md             full write-up: identification, descriptors, feasibi
 docs/sunplus-xu-protocol.md  Sunplus extension-unit protocol as used by fwupd
 descriptors/                 decoded USB descriptors (UsbTreeView, serial redacted)
 tools/uvcxu.py               small Linux helper for UVC extension-unit queries
-tools/xu_probe.py            read-only: list XU controls (GET_INFO/GET_LEN/GET_CUR...)
-tools/flash_dump.py          read-only: back up the SPI flash via XU unit 4
+tools/xu_probe.py            Linux, read-only: list XU controls (GET_INFO/GET_LEN/GET_CUR...)
+tools/flash_dump.py          Linux, read-only: back up the SPI flash via XU unit 4
+windows/uvcxu_win.py         Windows helper: XU access via DirectShow IKsControl
+windows/xu_probe_win.py      Windows, read-only: probe XU controls
+windows/flash_dump_win.py    Windows, read-only: back up the flash via XU unit 4
+windows/README.md            Windows usage (no Linux needed; needs comtypes)
 ```
+
+Linux is the most reliable host (see Quick start below). If you only have
+Windows, use the `windows/` tools instead — same read-only approach, through the
+in-box UVC driver; see [`windows/README.md`](windows/README.md).
 
 ## Quick start (Linux)
 
