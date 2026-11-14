@@ -16,7 +16,7 @@ This uses undocumented vendor functionality. Reading should be harmless, but
 there is no warranty. Make two dumps and compare their hashes before trusting one.
 
 Usage:
-    python3 tools/flash_dump.py --out hp435-fw.bin [--size 0x8000] [--device /dev/videoN]
+    python3 tools/flash_dump.py --out hp435-fw.bin [--size 0x20000] [--device /dev/videoN]
 """
 
 from __future__ import annotations
@@ -35,7 +35,7 @@ UNIT = 4
 SEL_READ_ADDR = 0x0E
 SEL_READ_CHUNK = 0x16
 CHUNK = 64
-DEFAULT_SIZE = 0x8000  # 32 KiB, matches the known Sunplus reference image size
+DEFAULT_SIZE = 0x20000  # 128 KiB: full flash of the HP 430/435 (address space wraps at 0x20000)
 
 
 def read_chunk(xu: XU, addr: int) -> bytes:

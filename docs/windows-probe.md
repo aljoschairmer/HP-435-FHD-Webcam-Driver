@@ -9,7 +9,8 @@ The KS topology has 6 nodes. `IKsTopologyInfo::get_NodeType` returns unusable
 values on this device, so the extension-unit node is found by probing the XU
 property set on each node (the node that is not the XU answers with HRESULT
 `0x80070492`, "property set not present"). Resolved nodes: unit 3 → node 2,
-unit 4 → node 5 also answers generically and is ignored.
+unit 4 → node 3. Node 5 answers for both GUIDs and is ignored (the lowest
+responding node is used).
 
 ## Unit 3 — HP `{D5C2F42C-1808-4D9F-BE56-753E271C9244}` (node 2)
 
@@ -60,10 +61,58 @@ The first bytes `02 07 c0` are an 8051 `LJMP 0x07C0` reset vector, so `0x16`
 reads the firmware image itself. The ascending big-endian words
 `03 e8 … 27 10` (1000, 2000, … 10000) are a vendor table a little further in.
 
+## Flash read-out
+
+Dumps of 32 KiB, 64 KiB and 256 KiB were taken with `windows/flash_dump_win.py`
+(read-only: `0x0E` ReadAddr + `0x16` ReadChunk, no download mode).
+
+**Stable reads.** The first 64 KiB are byte-identical in all three dumps.
+
+**Size: 128 KiB.** In the 256 KiB dump, `0x20000–0x3FFFF` is byte-identical to
+`0x00000–0x1FFFF`, so the address space wraps at 128 KiB (most likely a 1 Mbit
+SPI flash). The 32 KiB and 64 KiB boundaries show no mirroring.
+
+**Layout (firmware 20.11):**
+
+| Range | Content |
+|---|---|
+| `0x00000–0x1D8D3` | firmware: boot code, tables, code/data (~118 KiB) |
+| `0x1D8D4–0x1EFFF` | erased (`FF`) |
+| `0x1F000–0x1F12F` | small separate block (~300 bytes) on a 4 KiB sector boundary, probably a settings/parameter area |
+| `0x1F130–0x1FFFF` | erased (`FF`) |
+
+**Entropy** (bits/byte per 16 KiB block):
+
+| Offset | Entropy | `00` % | `FF` % |
+|---|---|---|---|
+| `0x00000` | 4.97 | 36.0 | 0.1 |
+| `0x04000` | 6.11 | 21.0 | 1.4 |
+| `0x08000` | 6.49 | 4.5 | 0.3 |
+| `0x0C000` | 6.60 | 3.8 | 0.1 |
+| `0x10000` | 6.48 | 4.1 | 0.2 |
+| `0x14000` | 6.57 | 5.4 | 0.3 |
+| `0x18000` | 6.61 | 4.7 | 0.5 |
+| `0x1C000` | 3.53 | 2.3 | 60.6 |
+
+Values of 5–6.6 are typical for machine code and tables; encrypted or compressed
+data would be close to 8. A 4 KiB block at `0x2000` is almost entirely zero.
+
+**Reference hash** of the full 128 KiB image (firmware 20.11, this unit):
+
+```
+SHA256 247eb7434d0030a0e26fe037b3123a6bf39278bb5bf4878e8d47d1f513b35985
+```
+
+The image itself is not part of this repository (proprietary; `*.bin` is
+git-ignored). If your own dump of a 20.11 camera matches this hash, your read-out
+is complete and correct. The settings block at `0x1F000` may differ between
+units, in which case the hash will differ too.
+
 ## Consequences
 
-- A firmware **backup is readable on Windows**, via `0x0E` + `0x16`, without
-  entering download mode (no write path touched). See `windows/flash_dump_win.py`.
+- A complete firmware **backup (128 KiB) is readable on Windows**, via `0x0E` +
+  `0x16`, without entering download mode (no write path touched). See
+  `windows/flash_dump_win.py`; its default `--size` is now `0x20000`.
 - The feasibility table in `findings.md` for "firmware backup over USB" moves
   from *likely* to **confirmed** on this unit.
 - Reads happen outside download mode, so a dump is low-risk; the risky path

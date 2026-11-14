@@ -33,12 +33,13 @@ before dumping.
 ## Firmware backup (read-only)
 
 ```
-py -3 windows\flash_dump_win.py --out hp435-fw.bin --size 0x8000
+py -3 windows\flash_dump_win.py --out hp435-fw.bin
 ```
 
 Run it twice to different files and compare the printed `sha256` values; equal
-hashes mean the read is stable. `--size` defaults to 32 KiB (the size of the
-known Sunplus reference image); raise it if the probe suggests a larger flash.
+hashes mean the read is stable. `--size` defaults to 128 KiB (`0x20000`), the
+full flash of this camera: reads beyond that wrap around to address 0. See
+[`../docs/windows-probe.md`](../docs/windows-probe.md) for the flash layout.
 
 ## How it works
 

@@ -10,7 +10,7 @@ download mode (0x09), stream a payload (0x0A), finish a transfer (0x0C), or writ
 any ASIC register. It cannot modify the flash. Aborts on the first read error.
 
 Requires:  pip install comtypes
-Usage:     py -3 windows\\flash_dump_win.py --out hp435-fw.bin [--size 0x8000]
+Usage:     py -3 windows\\flash_dump_win.py --out hp435-fw.bin [--size 0x20000]
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ XU_SUNPLUS = "{63610682-5070-49AB-B8CC-B3855E8D221D}"
 SEL_READ_ADDR = 0x0E
 SEL_READ_CHUNK = 0x16
 CHUNK = 64
-DEFAULT_SIZE = 0x8000
+DEFAULT_SIZE = 0x20000  # 128 KiB: full flash (address space wraps at 0x20000)
 
 
 def main() -> int:
