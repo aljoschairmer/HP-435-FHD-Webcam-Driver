@@ -1,0 +1,2003 @@
+      ========================== Summary =========================
+Vendor ID                : 0x03F0 (HP Inc.)
+Product ID               : 0x794A
+Manufacturer String      : "SunplusIT Inc"
+Product String           : "HP 430/435 FHD Webcam"
+Serial                   : "<REDACTED>"
+USB Version              : 2.0.1 (480 Mbit/s)
+Port maximum Speed       : High-Speed (Companion Port 2-5-2 is doing the SuperSpeed and SuperSpeedPlus or higher)
+Device maximum Speed     : High-Speed
+Device Connection Speed  : High-Speed
+Self powered             : no
+Demanded Current         : 500 mA
+Used Endpoints           : 3
+Video                    : UVC Version 1.00
+                 -------- Default Video Modes --------
+1920 × 1080 @ 30 fps     : MJPEG
+1920 × 1080 @ 5 fps      : YUY2
+1280 × 720 @ 60 fps      : MJPEG
+1280 × 720 @ 10 fps      : YUY2
+1024 × 576 @ 30 fps      : MJPEG
+1024 × 576 @ 15 fps      : YUY2
+800 × 600 @ 30 fps       : MJPEG
+800 × 600 @ 20 fps       : YUY2
+640 × 480 @ 30 fps       : MJPEG, YUY2
+640 × 360 @ 30 fps       : MJPEG, YUY2
+320 × 240 @ 30 fps       : MJPEG, YUY2
+160 × 120 @ 30 fps       : MJPEG
+160 × 120 @ 5 fps        : YUY2
+
+      ======================== USB Device ========================
+
+        +++++++++++++++++ Device Information ++++++++++++++++++
+Device Description       : USB-Verbundgerät
+BusReported Device Desc  : HP 430/435 FHD Webcam
+Device Path              : \\?\USB#VID_03F0&PID_794A#<REDACTED>#{a5dcbf10-6530-11d2-901f-00c04fb951ed} (GUID_DEVINTERFACE_USB_DEVICE)
+Kernel Name              : \Device\USBPDO-7
+Device ID                : USB\VID_03F0&PID_794A\<REDACTED>
+Hardware IDs             : USB\VID_03F0&PID_794A&REV_2011 USB\VID_03F0&PID_794A
+Driver KeyName           : {36fc9e60-c465-11cf-8056-444553540000}\0021 (GUID_DEVCLASS_USB)
+Driver                   : \SystemRoot\System32\drivers\usbccgp.sys (Version: 10.0.28000.3454  Date: 2026-11-07  Company: Microsoft Corporation)
+Driver Inf               : C:\WINDOWS\inf\usb.inf
+Legacy BusType           : PNPBus
+Class                    : USB
+Class GUID               : {36fc9e60-c465-11cf-8056-444553540000} (GUID_DEVCLASS_USB)
+Service                  : usbccgp
+Enumerator               : USB
+Location Info            : Port_#0002.Hub_#0004
+Address                  : 2
+Location IDs             : PCIROOT(0)#PCI(0801)#PCI(0003)#USBROOT(0)#USB(1)#USB(2), ACPI(_SB_)#ACPI(PCI0)#ACPI(BUSA)#ACPI(XHC0)#ACPI(RHUB)#ACPI(HS01)#USB(2)
+Container ID             : <REDACTED>
+Manufacturer Info        : (Standard-USB-Hostcontroller)
+Capabilities             : 0x94 (Removable, UniqueID, SurpriseRemovalOK)
+Status                   : 0x0180600A (DN_DRIVER_LOADED, DN_STARTED, DN_DISABLEABLE, DN_REMOVABLE, DN_NT_ENUMERATOR, DN_NT_DRIVER)
+EnhancedPowerMgmtEnabled : 0
+Power State              : D0 (supported: D0, D2, D3, wake from D0, wake from D2)
+
+        ---------------- Connection Information ---------------
+Connection Index         : 0x02 (Port 2)
+Connection Status        : 0x01 (DeviceConnected)
+Current Config Value     : 0x01 (Configuration 1)
+Device Address           : 0x07 (7)
+Is Hub                   : 0x00 (no)
+Device Bus Speed         : 0x02 (High-Speed)
+Number of open Pipes     : 0x02 (2 pipes to data endpoints)
+Pipe[0]                  : EndpointID=7  Direction=IN   ScheduleOffset=0  Type=Interrupt  wMaxPacketSize=0x10    bInterval=8   -> 2160 Bits/ms = 270000 Bytes/s
+Pipe[1]                  : EndpointID=4  Direction=IN   ScheduleOffset=0  Type=Interrupt  wMaxPacketSize=0x10    bInterval=4   -> 2160 Bits/ms = 270000 Bytes/s
+
+        --------------- Connection Information V2 -------------
+Connection Index         : 0x02 (2)
+Length                   : 0x10 (16 bytes)
+SupportedUsbProtocols    : 0x03
+ Usb110                  : 1 (yes, port supports USB 1.1)
+ Usb200                  : 1 (yes, port supports USB 2.0)
+ Usb300                  : 0 (no, port not supports USB 3.0) -> but Companion Port 2-5-2 does
+ ReservedMBZ             : 0x00
+Flags                    : 0x00
+ DevIsOpAtSsOrHigher     : 0 (Device is not operating at SuperSpeed or higher)
+ DevIsSsCapOrHigher      : 0 (Device is not SuperSpeed capable or higher)
+ DevIsOpAtSsPlusOrHigher : 0 (Device is not operating at SuperSpeedPlus or higher)
+ DevIsSsPlusCapOrHigher  : 0 (Device is not SuperSpeedPlus capable or higher)
+ ReservedMBZ             : 0x00
+
+    ---------------------- Device Descriptor ----------------------
+bLength                  : 0x12 (18 bytes)
+bDescriptorType          : 0x01 (Device Descriptor)
+bcdUSB                   : 0x201 (USB Version 2.0.1)
+bDeviceClass             : 0xEF (Miscellaneous)
+bDeviceSubClass          : 0x02
+bDeviceProtocol          : 0x01 (IAD - Interface Association Descriptor)
+bMaxPacketSize0          : 0x40 (64 bytes)
+idVendor                 : 0x03F0 (HP Inc.)
+idProduct                : 0x794A
+bcdDevice                : 0x2011
+iManufacturer            : 0x01 (String Descriptor 1)
+ Language 0x0409         : "SunplusIT Inc"
+iProduct                 : 0x02 (String Descriptor 2)
+ Language 0x0409         : "HP 430/435 FHD Webcam"
+iSerialNumber            : 0x03 (String Descriptor 3)
+ Language 0x0409         : "<REDACTED>"
+bNumConfigurations       : 0x01 (1 Configuration)
+
+    ------------------ Configuration Descriptor -------------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x02 (Configuration Descriptor)
+wTotalLength             : 0x051A (1306 bytes)
+bNumInterfaces           : 0x05 (5 Interfaces)
+bConfigurationValue      : 0x01 (Configuration 1)
+iConfiguration           : 0x00 (No String Descriptor)
+bmAttributes             : 0x80
+ D7: Reserved, set 1     : 0x01
+ D6: Self Powered        : 0x00 (no)
+ D5: Remote Wakeup       : 0x00 (no)
+ D4..0: Reserved, set 0  : 0x00
+MaxPower                 : 0xFA (500 mA)
+
+        ------------------- IAD Descriptor --------------------
+bLength                  : 0x08 (8 bytes)
+bDescriptorType          : 0x0B (Interface Association Descriptor)
+bFirstInterface          : 0x00 (Interface 0)
+bInterfaceCount          : 0x02 (2 Interfaces)
+bFunctionClass           : 0x0E (Video)
+bFunctionSubClass        : 0x03 (Video Interface Collection)
+bFunctionProtocol        : 0x00 (PC_PROTOCOL_UNDEFINED)
+iFunction                : 0x04 (String Descriptor 4)
+ Language 0x0409         : "HP 430/435 FHD Webcam"
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x00 (Interface 0)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x01 (Video Control)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x04 (String Descriptor 4)
+ Language 0x0409         : "HP 430/435 FHD Webcam"
+
+        ------- Video Control Interface Header Descriptor -----
+bLength                  : 0x0D (13 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x01 (Video Control Header)
+bcdUVC                   : 0x0100 (UVC Version 1.00)
+wTotalLength             : 0x006D (109 bytes)
+dwClockFreq              : 0x02DC6C00 (48 MHz)
+bInCollection            : 0x01 (1 VideoStreaming interface)
+baInterfaceNr[1]         : 0x01 (Interface 1)
+
+        -------- Video Control Input Terminal Descriptor ------
+bLength                  : 0x12 (18 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x02 (Input Terminal)
+bTerminalID              : 0x01 (1)
+wTerminalType            : 0x0201 (ITT_CAMERA)
+bAssocTerminal           : 0x00 (Not associated with an Output Terminal)
+iTerminal                : 0x00 (No String Descriptor)
+Camera Input Terminal Data:
+wObjectiveFocalLengthMin : 0x0000
+wObjectiveFocalLengthMax : 0x0000
+wOcularFocalLength       : 0x0000
+bControlSize             : 0x03 (3 bytes)
+bmControls               : 0x2E, 0x00, 0x32
+ D0                      : 0   no -  Scanning Mode
+ D1                      : 1  yes -  Auto-Exposure Mode
+ D2                      : 1  yes -  Auto-Exposure Priority
+ D3                      : 1  yes -  Exposure Time (Absolute)
+ D4                      : 0   no -  Exposure Time (Relative)
+ D5                      : 1  yes -  Focus (Absolute)
+ D6                      : 0   no -  Focus (Relative)
+ D7                      : 0   no -  Iris (Absolute)
+ D8                      : 0   no -  Iris (Relative)
+ D9                      : 0   no -  Zoom (Absolute)
+ D10                     : 0   no -  Zoom (Relative)
+ D11                     : 0   no -  Pan (Absolute)
+ D12                     : 0   no -  Pan (Relative)
+ D13                     : 0   no -  Roll (Absolute)
+ D14                     : 0   no -  Roll (Relative)
+ D15                     : 0   no -  Tilt (Absolute)
+ D16                     : 0   no -  Tilt (Relative)
+ D17                     : 1  yes -  Focus Auto
+ D18                     : 0   no -  Privacy
+ D19                     : 0   no -  Focus, Simple
+ D20                     : 1  yes -  Window
+ D21                     : 1  yes -  Region of Interest (ROI)
+ D22                     : 0   no -  Reserved
+ D23                     : 0   no -  Reserved
+
+        -------- Video Control Processing Unit Descriptor -----
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x05 (Processing Unit)
+bUnitID                  : 0x02 (2)
+bSourceID                : 0x01 (1)
+wMaxMultiplier           : 0x4000 (163.84x Zoom)
+bControlSize             : 0x02 (2 bytes)
+bmControls               : 0x7F, 0x15
+ D0                      : 1  yes -  Brightness
+ D1                      : 1  yes -  Contrast
+ D2                      : 1  yes -  Hue
+ D3                      : 1  yes -  Saturation
+ D4                      : 1  yes -  Sharpness
+ D5                      : 1  yes -  Gamma
+ D6                      : 1  yes -  White Balance Temperature
+ D7                      : 0   no -  White Balance Component
+ D8                      : 1  yes -  Backlight Compensation
+ D9                      : 0   no -  Gain
+ D10                     : 1  yes -  Power Line Frequency
+ D11                     : 0   no -  Hue, Auto
+ D12                     : 1  yes -  White Balance Temperature, Auto
+ D13                     : 0   no -  White Balance Component, Auto
+ D14                     : 0   no -  Digital Multiplier
+ D15                     : 0   no -  Digital Multiplier Limit
+iProcessing              : 0x00 (No String Descriptor)
+
+        --------- Video Control Extension Unit Descriptor -----
+bLength                  : 0x1D (29 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x06 (Extension Unit)
+bUnitID                  : 0x03 (ID 3)
+guidExtensionCode        : {D5C2F42C-1808-4D9F-BE56-753E271C9244}
+bNumControls             : 0x03 (3 Controls)
+bNrInPins                : 0x01 (1 Input Pin)
+baSourceID[1]            : 0x02
+bControlSize             : 0x04 (4 bytes)
+bmControls               : 0x07, 0x00, 0x00, 0x00
+ D0                      : 1  yes -  Vendor-Specific
+ D1                      : 1  yes -  Vendor-Specific
+ D2                      : 1  yes -  Vendor-Specific
+ D3                      : 0   no -  Vendor-Specific
+ D4                      : 0   no -  Vendor-Specific
+ D5                      : 0   no -  Vendor-Specific
+ D6                      : 0   no -  Vendor-Specific
+ D7                      : 0   no -  Vendor-Specific
+ D8                      : 0   no -  Vendor-Specific
+ D9                      : 0   no -  Vendor-Specific
+ D10                     : 0   no -  Vendor-Specific
+ D11                     : 0   no -  Vendor-Specific
+ D12                     : 0   no -  Vendor-Specific
+ D13                     : 0   no -  Vendor-Specific
+ D14                     : 0   no -  Vendor-Specific
+ D15                     : 0   no -  Vendor-Specific
+ D16                     : 0   no -  Vendor-Specific
+ D17                     : 0   no -  Vendor-Specific
+ D18                     : 0   no -  Vendor-Specific
+ D19                     : 0   no -  Vendor-Specific
+ D20                     : 0   no -  Vendor-Specific
+ D21                     : 0   no -  Vendor-Specific
+ D22                     : 0   no -  Vendor-Specific
+ D23                     : 0   no -  Vendor-Specific
+ D24                     : 0   no -  Vendor-Specific
+ D25                     : 0   no -  Vendor-Specific
+ D26                     : 0   no -  Vendor-Specific
+ D27                     : 0   no -  Vendor-Specific
+ D28                     : 0   no -  Vendor-Specific
+ D29                     : 0   no -  Vendor-Specific
+ D30                     : 0   no -  Vendor-Specific
+ D31                     : 0   no -  Vendor-Specific
+iExtension               : 0x00 (No String Descriptor)
+
+        --------- Video Control Extension Unit Descriptor -----
+bLength                  : 0x1D (29 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x06 (Extension Unit)
+bUnitID                  : 0x04 (ID 4)
+guidExtensionCode        : {63610682-5070-49AB-B8CC-B3855E8D221D}
+bNumControls             : 0x19 (25 Controls)
+bNrInPins                : 0x01 (1 Input Pin)
+baSourceID[1]            : 0x03
+bControlSize             : 0x04 (4 bytes)
+bmControls               : 0xFF, 0xFF, 0x77, 0x07
+ D0                      : 1  yes -  Vendor-Specific
+ D1                      : 1  yes -  Vendor-Specific
+ D2                      : 1  yes -  Vendor-Specific
+ D3                      : 1  yes -  Vendor-Specific
+ D4                      : 1  yes -  Vendor-Specific
+ D5                      : 1  yes -  Vendor-Specific
+ D6                      : 1  yes -  Vendor-Specific
+ D7                      : 1  yes -  Vendor-Specific
+ D8                      : 1  yes -  Vendor-Specific
+ D9                      : 1  yes -  Vendor-Specific
+ D10                     : 1  yes -  Vendor-Specific
+ D11                     : 1  yes -  Vendor-Specific
+ D12                     : 1  yes -  Vendor-Specific
+ D13                     : 1  yes -  Vendor-Specific
+ D14                     : 1  yes -  Vendor-Specific
+ D15                     : 1  yes -  Vendor-Specific
+ D16                     : 1  yes -  Vendor-Specific
+ D17                     : 1  yes -  Vendor-Specific
+ D18                     : 1  yes -  Vendor-Specific
+ D19                     : 0   no -  Vendor-Specific
+ D20                     : 1  yes -  Vendor-Specific
+ D21                     : 1  yes -  Vendor-Specific
+ D22                     : 1  yes -  Vendor-Specific
+ D23                     : 0   no -  Vendor-Specific
+ D24                     : 1  yes -  Vendor-Specific
+ D25                     : 1  yes -  Vendor-Specific
+ D26                     : 1  yes -  Vendor-Specific
+ D27                     : 0   no -  Vendor-Specific
+ D28                     : 0   no -  Vendor-Specific
+ D29                     : 0   no -  Vendor-Specific
+ D30                     : 0   no -  Vendor-Specific
+ D31                     : 0   no -  Vendor-Specific
+iExtension               : 0x00 (No String Descriptor)
+
+        ------- Video Control Output Terminal Descriptor ------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x03 (Output Terminal)
+bTerminalID              : 0x05 (5)
+wTerminalType            : 0x0101 (TT_STREAMING)
+bAssocTerminal           : 0x00 (Not associated with an Input Terminal)
+bSourceID                : 0x04 (4)
+iTerminal                : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x87 (Direction=IN EndpointID=7)
+bmAttributes             : 0x03 (TransferType=Interrupt)
+wMaxPacketSize           : 0x0010
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x10 (16 bytes per packet)
+bInterval                : 0x08 (128 microframes -> 16 ms)
+
+        --- Class-specific VC Interrupt Endpoint Descriptor ---
+bLength                  : 0x05 (5 bytes)
+bDescriptorType          : 0x25 (Video Control Endpoint)
+bDescriptorSubtype       : 0x03 (Interrupt)
+wMaxTransferSize         : 0x0405 (1029 bytes)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x00 (Default Control Pipe only)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ---- VC-Specific VS Video Input Header Descriptor -----
+bLength                  : 0x0F (15 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x01 (Input Header)
+bNumFormats              : 0x02
+wTotalLength             : 0x021D (541 bytes)
+bEndpointAddress         : 0x81 (Direction=IN  EndpointID=1)
+bmInfo                   : 0x00 (Dynamic Format Change not supported)
+bTerminalLink            : 0x05 (Output Terminal ID 5)
+bStillCaptureMethod      : 0x01 (Still Capture Method 1)
+nbTriggerSupport         : 0x00 (Hardware Triggering not supported)
+bTriggerUsage            : 0x00 (Host will initiate still image capture)
+bControlSize             : 0x01 (1 byte each)
+Video Payload Format 1   : 0x04
+ D0                      : 0   no -  Key Frame Rate
+ D1                      : 0   no -  P Frame Rate
+ D2                      : 1  yes -  Compression Quality
+ D3                      : 0   no -  Compression Window Size
+ D4                      : 0   no -  Generate Key Frame
+ D5                      : 0   no -  Update Frame Segment
+ D6                      : 0   no -  Reserved
+ D7                      : 0   no -  Reserved
+Video Payload Format 2   : 0x00
+ D0                      : 0   no -  Key Frame Rate
+ D1                      : 0   no -  P Frame Rate
+ D2                      : 0   no -  Compression Quality
+ D3                      : 0   no -  Compression Window Size
+ D4                      : 0   no -  Generate Key Frame
+ D5                      : 0   no -  Update Frame Segment
+ D6                      : 0   no -  Reserved
+ D7                      : 0   no -  Reserved
+
+        ----- Video Streaming MJPEG Format Type Descriptor ----
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x06 (Format MJPEG)
+bFormatIndex             : 0x01 (1)
+bNumFrameDescriptors     : 0x07 (7)
+bmFlags                  : 0x01 (Sample size is fixed)
+bDefaultFrameIndex       : 0x01 (1)
+bAspectRatioX            : 0x00
+bAspectRatioY            : 0x00
+bmInterlaceFlags         : 0x00
+ D0 IL stream or variable: 0 (no)
+ D1 Fields per frame     : 0 (2 fields)
+ D2 Field 1 first        : 0 (no)
+ D3 Reserved             : 0
+ D4..5 Field pattern     : 0 (Field 1 only)
+ D6..7 Display Mode      : 0 (Bob only)
+bCopyProtect             : 0x00 (No restrictions)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+---> This is the Default (optimum) Frame index
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x01
+bmCapabilities           : 0x01
+wWidth                   : 0x0280 (640)
+wHeight                  : 0x01E0 (480)
+dwMinBitRate             : 0x05DC0000 (98304000 bps -> 12.288 MB/s)
+dwMaxBitRate             : 0x08CA0000 (147456000 bps -> 18.432 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x02
+bmCapabilities           : 0x01
+wWidth                   : 0x0780 (1920)
+wHeight                  : 0x0438 (1080)
+dwMinBitRate             : 0x278D0000 (663552000 bps -> 82.944 MB/s)
+dwMaxBitRate             : 0x3B538000 (995328000 bps -> 124.416 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x03
+bmCapabilities           : 0x01
+wWidth                   : 0x0140 (320)
+wHeight                  : 0x00F0 (240)
+dwMinBitRate             : 0x01770000 (24576000 bps -> 3.72 MB/s)
+dwMaxBitRate             : 0x02328000 (36864000 bps -> 4.608 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x04
+bmCapabilities           : 0x01
+wWidth                   : 0x0320 (800)
+wHeight                  : 0x0258 (600)
+dwMinBitRate             : 0x0927C000 (153600000 bps -> 19.200 MB/s)
+dwMaxBitRate             : 0x0DBBA000 (230400000 bps -> 28.800 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x05
+bmCapabilities           : 0x01
+wWidth                   : 0x0500 (1280)
+wHeight                  : 0x02D0 (720)
+dwMinBitRate             : 0x15F90000 (368640000 bps -> 46.80 MB/s)
+dwMaxBitRate             : 0x34BC0000 (884736000 bps -> 110.592 MB/s)
+dwDefaultFrameInterval   : 0x00028B0A (16.6666 ms -> 60.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00028B0A (16.6666 ms -> 60.0000 fps)
+adwFrameInterval[2]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[3]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x06
+bmCapabilities           : 0x01
+wWidth                   : 0x0400 (1024)
+wHeight                  : 0x0240 (576)
+dwMinBitRate             : 0x0B400000 (188743680 bps -> 23.592 MB/s)
+dwMaxBitRate             : 0x10E00000 (283115520 bps -> 35.389 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+bLength                  : 0x26 (38 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x07
+bmCapabilities           : 0x01
+wWidth                   : 0x0280 (640)
+wHeight                  : 0x0168 (360)
+dwMinBitRate             : 0x04650000 (73728000 bps -> 9.216 MB/s)
+dwMaxBitRate             : 0x06978000 (110592000 bps -> 13.824 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x03 (3 discrete frame intervals supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+adwFrameInterval[2]      : 0x00061A80 (40.0000 ms -> 25.0000 fps)
+adwFrameInterval[3]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        ------- VS Color Matching Descriptor Descriptor -------
+bLength                  : 0x06 (6 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x0D (Color Matching)
+bColorPrimaries          : 0x01 (BT.709, sRGB)
+bTransferCharacteristics : 0x01 (BT.709)
+bMatrixCoefficients      : 0x04 (SMPTE 170M)
+
+        ------- VS Uncompressed Format Type Descriptor --------
+bLength                  : 0x1B (27 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x04 (Uncompressed Format Type)
+bFormatIndex             : 0x02 (2)
+bNumFrameDescriptors     : 0x07 (7 Frame Descriptors)
+guidFormat               : {32595559-0000-0010-8000-00AA00389B71} (MEDIASUBTYPE_YUY2)
+bBitsPerPixel            : 0x10 (16 bits per pixel)
+bDefaultFrameIndex       : 0x01 (Index 1)
+bAspectRatioX            : 0x00
+bAspectRatioY            : 0x00
+bmInterlaceFlags         : 0x00
+ D0 IL stream or variable: 0 (no)
+ D1 Fields per frame     : 0 (2 fields)
+ D2 Field 1 first        : 0 (no)
+ D3 Reserved             : 0
+ D4..5 Field pattern     : 0 (Field 1 only)
+ D6..7 Display Mode      : 0 (Bob only)
+bCopyProtect             : 0x00 (No restrictions)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+---> This is the Default (optimum) Frame index
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x01
+bmCapabilities           : 0x01
+wWidth                   : 0x0280 (640)
+wHeight                  : 0x01E0 (480)
+dwMinBitRate             : 0x08CA0000 (147456000 bps -> 18.432 MB/s)
+dwMaxBitRate             : 0x08CA0000 (147456000 bps -> 18.432 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x02
+bmCapabilities           : 0x01
+wWidth                   : 0x0780 (1920)
+wHeight                  : 0x0438 (1080)
+dwMinBitRate             : 0x09E34000 (165888000 bps -> 20.736 MB/s)
+dwMaxBitRate             : 0x09E34000 (165888000 bps -> 20.736 MB/s)
+dwDefaultFrameInterval   : 0x001E8480 (200.0000 ms -> 5.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x001E8480 (200.0000 ms -> 5.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x03
+bmCapabilities           : 0x01
+wWidth                   : 0x0140 (320)
+wHeight                  : 0x00F0 (240)
+dwMinBitRate             : 0x02328000 (36864000 bps -> 4.608 MB/s)
+dwMaxBitRate             : 0x02328000 (36864000 bps -> 4.608 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x04
+bmCapabilities           : 0x01
+wWidth                   : 0x0320 (800)
+wHeight                  : 0x0258 (600)
+dwMinBitRate             : 0x0927C000 (153600000 bps -> 19.200 MB/s)
+dwMaxBitRate             : 0x0927C000 (153600000 bps -> 19.200 MB/s)
+dwDefaultFrameInterval   : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x0007A120 (50.0000 ms -> 20.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x05
+bmCapabilities           : 0x01
+wWidth                   : 0x0500 (1280)
+wHeight                  : 0x02D0 (720)
+dwMinBitRate             : 0x08CA0000 (147456000 bps -> 18.432 MB/s)
+dwMaxBitRate             : 0x08CA0000 (147456000 bps -> 18.432 MB/s)
+dwDefaultFrameInterval   : 0x000F4240 (100.0000 ms -> 10.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x000F4240 (100.0000 ms -> 10.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x06
+bmCapabilities           : 0x01
+wWidth                   : 0x0400 (1024)
+wHeight                  : 0x0240 (576)
+dwMinBitRate             : 0x08700000 (141557760 bps -> 17.694 MB/s)
+dwMaxBitRate             : 0x08700000 (141557760 bps -> 17.694 MB/s)
+dwDefaultFrameInterval   : 0x000A2C2A (66.6666 ms -> 15.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x000A2C2A (66.6666 ms -> 15.0000 fps)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x07
+bmCapabilities           : 0x01
+wWidth                   : 0x0280 (640)
+wHeight                  : 0x0168 (360)
+dwMinBitRate             : 0x06978000 (110592000 bps -> 13.824 MB/s)
+dwMaxBitRate             : 0x06978000 (110592000 bps -> 13.824 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+
+        ------- VS Color Matching Descriptor Descriptor -------
+bLength                  : 0x06 (6 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x0D (Color Matching)
+bColorPrimaries          : 0x01 (BT.709, sRGB)
+bTransferCharacteristics : 0x01 (BT.709)
+bMatrixCoefficients      : 0x04 (SMPTE 170M)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x01
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x00C0
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0xC0 (192 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x02
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0180
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x180 (384 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x03
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0200
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x200 (512 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x04
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0280
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x280 (640 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x05
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0320
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x320 (800 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x06
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x03B0
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x3B0 (944 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x07
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0A80
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x01 (1 additional transactions per microframe -> allows 513..1024 byte per packet)
+ Bits 10..0              : 0x280 (640 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x08
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0B20
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x01 (1 additional transactions per microframe -> allows 513..1024 byte per packet)
+ Bits 10..0              : 0x320 (800 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x09
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0BE0
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x01 (1 additional transactions per microframe -> allows 513..1024 byte per packet)
+ Bits 10..0              : 0x3E0 (992 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x0A
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x13C0
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x02 (2 additional transactions per microframe -> allows 683..1024 bytes per packet)
+ Bits 10..0              : 0x3C0 (960 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x0B
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x13FC
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x02 (2 additional transactions per microframe -> allows 683..1024 bytes per packet)
+ Bits 10..0              : 0x3FC (1020 bytes per packet)
+bInterval                : 0x01 (1 microframe -> 0.125 ms)
+
+        ------------------- IAD Descriptor --------------------
+bLength                  : 0x08 (8 bytes)
+bDescriptorType          : 0x0B (Interface Association Descriptor)
+bFirstInterface          : 0x02 (Interface 2)
+bInterfaceCount          : 0x02 (2 Interfaces)
+bFunctionClass           : 0x01 (Audio)
+bFunctionSubClass        : 0x02 (Audio Streaming)
+bFunctionProtocol        : 0x00
+iFunction                : 0x06 (String Descriptor 6)
+ Language 0x0409         : "HP 430/435 FHD Webcam microphone"
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x02 (Interface 2)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x00 (Default Control Pipe only)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x01 (Audio Control)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x06 (String Descriptor 6)
+ Language 0x0409         : "HP 430/435 FHD Webcam microphone"
+
+        ------ Audio Control Interface Header Descriptor ------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (Header)
+bcdADC                   : 0x0100
+wTotalLength             : 0x0026 (38 bytes)
+bInCollection            : 0x01
+baInterfaceNr[1]         : 0x03
+
+        ------- Audio Control Input Terminal Descriptor -------
+bLength                  : 0x0C (12 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Input Terminal)
+bTerminalID              : 0x06
+wTerminalType            : 0x0201 (Microphone)
+bAssocTerminal           : 0x00
+bNrChannels              : 0x02 (2 channels)
+wChannelConfig           : 0x0003 (L, R)
+iChannelNames            : 0x00 (No String Descriptor)
+iTerminal                : 0x00 (No String Descriptor)
+
+        -------- Audio Control Feature Unit Descriptor --------
+bLength                  : 0x08 (8 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x06 (Feature Unit)
+bUnitID                  : 0x07 (7)
+bSourceID                : 0x06 (6)
+bControlSize             : 0x01 (1 byte per control)
+bmaControls[0]           : 0x03
+ D0 : Mute               : 1 (yes)
+ D1 : Volume             : 1 (yes)
+ D2 : Bass               : 0 (no)
+ D3 : Mid                : 0 (no)
+ D4 : Treble             : 0 (no)
+ D5 : Graphic Equalizer  : 0 (no)
+ D6 : Automatic Gain     : 0 (no)
+ D7 : Delay              : 0 (no)
+iFeature                 : 0x00 (No String Descriptor)
+
+        ------- Audio Control Output Terminal Descriptor ------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x03 (Output Terminal)
+bTerminalID              : 0x08
+wTerminalType            : 0x0101 (USB Streaming)
+bAssocTerminal           : 0x06 (6)
+bSourceID                : 0x07 (7)
+iTerminal                : 0x00 (No String Descriptor)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x00 (Default Control Pipe only)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x01
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x01F40 (8000 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0024
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x24 (36 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x02
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x02B11 (11025 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0034
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x34 (52 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x03
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x03E80 (16000 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0044
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x44 (68 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x04
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x05622 (22050 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0060
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x60 (96 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x05
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x05DC0 (24000 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0064
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x64 (100 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x06
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x07D00 (32000 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0084
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x84 (132 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x07
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x0AC44 (44100 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x00B8
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0xB8 (184 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x03 (Interface 3)
+bAlternateSetting        : 0x08
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x01 (Audio)
+bInterfaceSubClass       : 0x02 (Audio Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        -------- Audio Streaming Interface Descriptor ---------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x01 (AS_GENERAL)
+bTerminalLink            : 0x08 (Terminal ID 8)
+bDelay                   : 0x01 (1 frame)
+wFormatTag               : 0x0001 (PCM)
+
+        ------- Audio Streaming Format Type Descriptor --------
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Audio Interface Descriptor)
+bDescriptorSubtype       : 0x02 (Format Type)
+bFormatType              : 0x01 (FORMAT_TYPE_I)
+bNrChannels              : 0x02 (2 channels)
+bSubframeSize            : 0x02 (2 bytes per subframe)
+bBitResolution           : 0x10 (16 bits per sample)
+bSamFreqType             : 0x01 (supports 1 sample frequence)
+tSamFreq[1]              : 0x0BB80 (48000 Hz)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x86 (Direction=IN EndpointID=6)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x00C4
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0xC4 (196 bytes per packet)
+bInterval                : 0x04 (4 ms)
+bRefresh                 : 0x00
+bSynchAddress            : 0x00
+
+        ----------- Audio Data Endpoint Descriptor ------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x25 (Audio Endpoint Descriptor)
+bDescriptorSubtype       : 0x01 (General)
+bmAttributes             : 0x01
+ D0   : Sampling Freq    : 0x01 (supported)
+ D1   : Pitch            : 0x00 (not supported)
+ D6..2: Reserved         : 0x00
+ D7   : MaxPacketsOnly   : 0x00 (no)
+bLockDelayUnits          : 0x00 (Undefined)
+wLockDelay               : 0x0000
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x04 (Interface 4)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x03 (HID - Human Interface Device)
+bInterfaceSubClass       : 0x00 (None)
+bInterfaceProtocol       : 0x00 (None)
+iInterface               : 0x00 (No String Descriptor)
+
+        ------------------- HID Descriptor --------------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x21 (HID Descriptor)
+bcdHID                   : 0x0111 (HID Version 1.11)
+bCountryCode             : 0x00 (00 = not localized)
+bNumDescriptors          : 0x01
+Descriptor 1:
+bDescriptorType          : 0x22 (Class=Report)
+wDescriptorLength        : 0x005D (93 bytes)
+  06 A0 FF          Usage Page (Vendor Defined)
+  09 01             Usage (unknown)
+  A1 01             Collection (Application)
+  09 11               Usage (unknown)
+  15 00               Logical Minimum (0)
+  26 FF 00            Logical Maximum (255)
+  85 05               Report ID (0x05)
+  96 FF 01            Report Count (511)
+  75 08               Report Size (8)
+  B1 02               Feature (Var)
+  09 10               Usage (unknown)
+  15 00               Logical Minimum (0)
+  26 FF 00            Logical Maximum (255)
+  85 06               Report ID (0x06)
+  96 00 01            Report Count (256)
+  75 08               Report Size (8)
+  B1 02               Feature (Var)
+  09 12               Usage (unknown)
+  15 00               Logical Minimum (0)
+  26 FF 00            Logical Maximum (255)
+  85 08               Report ID (0x08)
+  95 04               Report Count (4)
+  75 08               Report Size (8)
+  B1 02               Feature (Var)
+  09 13               Usage (unknown)
+  15 00               Logical Minimum (0)
+  26 FF 00            Logical Maximum (255)
+  85 09               Report ID (0x09)
+  95 03               Report Count (3)
+  75 08               Report Size (8)
+  81 02               Input (Var)
+  C0                End Collection
+  06 99 FF          Usage Page (Vendor Defined)
+  09 01             Usage (unknown)
+  A1 01             Collection (Application)
+  09 03               Usage (unknown)
+  15 00               Logical Minimum (0)
+  26 FF 00            Logical Maximum (255)
+  85 9A               Report ID (0x9A)
+  95 1F               Report Count (31)
+  75 08               Report Size (8)
+  B1 02               Feature (Var)
+  C0                End Collection
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x84 (Direction=IN EndpointID=4)
+bmAttributes             : 0x03 (TransferType=Interrupt)
+wMaxPacketSize           : 0x0010
+ Bits 15..13             : 0x00 (reserved, must be zero)
+ Bits 12..11             : 0x00 (0 additional transactions per microframe -> allows 1..1024 bytes per packet)
+ Bits 10..0              : 0x10 (16 bytes per packet)
+bInterval                : 0x04 (8 microframes -> 1 ms)
+
+    --------- Device Qualifier Descriptor (for Full-Speed) --------
+bLength                  : 0x0A (10 bytes)
+bDescriptorType          : 0x06 (Device_qualifier Descriptor)
+bcdUSB                   : 0x201 (USB Version 2.0.1)
+bDeviceClass             : 0xEF (Miscellaneous)
+bDeviceSubClass          : 0x02
+bDeviceProtocol          : 0x01 (IAD - Interface Association Descriptor)
+bMaxPacketSize0          : 0x40 (64 Bytes)
+bNumConfigurations       : 0x01 (1 other-speed configuration)
+bReserved                : 0x00
+
+    ------------ Other Speed Configuration Descriptor -------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x07 (Other_speed_configuration Descriptor)
+wTotalLength             : 0x0179 (377 bytes)
+bNumInterfaces           : 0x02 (2 Interfaces)
+bConfigurationValue      : 0x01 (Configuration 1)
+iConfiguration           : 0x00 (No String Descriptor)
+bmAttributes             : 0x80
+ D7: Reserved, set 1     : 0x01
+ D6: Self Powered        : 0x00 (no)
+ D5: Remote Wakeup       : 0x00 (no)
+ D4..0: Reserved, set 0  : 0x00
+MaxPower                 : 0xFA (500 mA)
+
+        ------------------- IAD Descriptor --------------------
+bLength                  : 0x08 (8 bytes)
+bDescriptorType          : 0x0B (Interface Association Descriptor)
+bFirstInterface          : 0x00 (Interface 0)
+bInterfaceCount          : 0x02 (2 Interfaces)
+bFunctionClass           : 0x0E (Video)
+bFunctionSubClass        : 0x03 (Video Interface Collection)
+bFunctionProtocol        : 0x00 (PC_PROTOCOL_UNDEFINED)
+iFunction                : 0x04 (String Descriptor 4)
+ Language 0x0409         : "HP 430/435 FHD Webcam"
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x00 (Interface 0)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x01 (Video Control)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x04 (String Descriptor 4)
+ Language 0x0409         : "HP 430/435 FHD Webcam"
+
+        ------- Video Control Interface Header Descriptor -----
+bLength                  : 0x0D (13 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x01 (Video Control Header)
+bcdUVC                   : 0x0100 (UVC Version 1.00)
+wTotalLength             : 0x006D (109 bytes)
+dwClockFreq              : 0x02DC6C00 (48 MHz)
+bInCollection            : 0x01 (1 VideoStreaming interface)
+baInterfaceNr[1]         : 0x01 (Interface 1)
+
+        -------- Video Control Input Terminal Descriptor ------
+bLength                  : 0x12 (18 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x02 (Input Terminal)
+bTerminalID              : 0x01 (1)
+wTerminalType            : 0x0201 (ITT_CAMERA)
+bAssocTerminal           : 0x00 (Not associated with an Output Terminal)
+iTerminal                : 0x00 (No String Descriptor)
+Camera Input Terminal Data:
+wObjectiveFocalLengthMin : 0x0000
+wObjectiveFocalLengthMax : 0x0000
+wOcularFocalLength       : 0x0000
+bControlSize             : 0x03 (3 bytes)
+bmControls               : 0x2E, 0x00, 0x32
+ D0                      : 0   no -  Scanning Mode
+ D1                      : 1  yes -  Auto-Exposure Mode
+ D2                      : 1  yes -  Auto-Exposure Priority
+ D3                      : 1  yes -  Exposure Time (Absolute)
+ D4                      : 0   no -  Exposure Time (Relative)
+ D5                      : 1  yes -  Focus (Absolute)
+ D6                      : 0   no -  Focus (Relative)
+ D7                      : 0   no -  Iris (Absolute)
+ D8                      : 0   no -  Iris (Relative)
+ D9                      : 0   no -  Zoom (Absolute)
+ D10                     : 0   no -  Zoom (Relative)
+ D11                     : 0   no -  Pan (Absolute)
+ D12                     : 0   no -  Pan (Relative)
+ D13                     : 0   no -  Roll (Absolute)
+ D14                     : 0   no -  Roll (Relative)
+ D15                     : 0   no -  Tilt (Absolute)
+ D16                     : 0   no -  Tilt (Relative)
+ D17                     : 1  yes -  Focus Auto
+ D18                     : 0   no -  Privacy
+ D19                     : 0   no -  Focus, Simple
+ D20                     : 1  yes -  Window
+ D21                     : 1  yes -  Region of Interest (ROI)
+ D22                     : 0   no -  Reserved
+ D23                     : 0   no -  Reserved
+
+        -------- Video Control Processing Unit Descriptor -----
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x05 (Processing Unit)
+bUnitID                  : 0x02 (2)
+bSourceID                : 0x01 (1)
+wMaxMultiplier           : 0x4000 (163.84x Zoom)
+bControlSize             : 0x02 (2 bytes)
+bmControls               : 0x7F, 0x15
+ D0                      : 1  yes -  Brightness
+ D1                      : 1  yes -  Contrast
+ D2                      : 1  yes -  Hue
+ D3                      : 1  yes -  Saturation
+ D4                      : 1  yes -  Sharpness
+ D5                      : 1  yes -  Gamma
+ D6                      : 1  yes -  White Balance Temperature
+ D7                      : 0   no -  White Balance Component
+ D8                      : 1  yes -  Backlight Compensation
+ D9                      : 0   no -  Gain
+ D10                     : 1  yes -  Power Line Frequency
+ D11                     : 0   no -  Hue, Auto
+ D12                     : 1  yes -  White Balance Temperature, Auto
+ D13                     : 0   no -  White Balance Component, Auto
+ D14                     : 0   no -  Digital Multiplier
+ D15                     : 0   no -  Digital Multiplier Limit
+iProcessing              : 0x00 (No String Descriptor)
+
+        --------- Video Control Extension Unit Descriptor -----
+bLength                  : 0x1D (29 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x06 (Extension Unit)
+bUnitID                  : 0x03 (ID 3)
+guidExtensionCode        : {D5C2F42C-1808-4D9F-BE56-753E271C9244}
+bNumControls             : 0x03 (3 Controls)
+bNrInPins                : 0x01 (1 Input Pin)
+baSourceID[1]            : 0x02
+bControlSize             : 0x04 (4 bytes)
+bmControls               : 0x07, 0x00, 0x00, 0x00
+ D0                      : 1  yes -  Vendor-Specific
+ D1                      : 1  yes -  Vendor-Specific
+ D2                      : 1  yes -  Vendor-Specific
+ D3                      : 0   no -  Vendor-Specific
+ D4                      : 0   no -  Vendor-Specific
+ D5                      : 0   no -  Vendor-Specific
+ D6                      : 0   no -  Vendor-Specific
+ D7                      : 0   no -  Vendor-Specific
+ D8                      : 0   no -  Vendor-Specific
+ D9                      : 0   no -  Vendor-Specific
+ D10                     : 0   no -  Vendor-Specific
+ D11                     : 0   no -  Vendor-Specific
+ D12                     : 0   no -  Vendor-Specific
+ D13                     : 0   no -  Vendor-Specific
+ D14                     : 0   no -  Vendor-Specific
+ D15                     : 0   no -  Vendor-Specific
+ D16                     : 0   no -  Vendor-Specific
+ D17                     : 0   no -  Vendor-Specific
+ D18                     : 0   no -  Vendor-Specific
+ D19                     : 0   no -  Vendor-Specific
+ D20                     : 0   no -  Vendor-Specific
+ D21                     : 0   no -  Vendor-Specific
+ D22                     : 0   no -  Vendor-Specific
+ D23                     : 0   no -  Vendor-Specific
+ D24                     : 0   no -  Vendor-Specific
+ D25                     : 0   no -  Vendor-Specific
+ D26                     : 0   no -  Vendor-Specific
+ D27                     : 0   no -  Vendor-Specific
+ D28                     : 0   no -  Vendor-Specific
+ D29                     : 0   no -  Vendor-Specific
+ D30                     : 0   no -  Vendor-Specific
+ D31                     : 0   no -  Vendor-Specific
+iExtension               : 0x00 (No String Descriptor)
+
+        --------- Video Control Extension Unit Descriptor -----
+bLength                  : 0x1D (29 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x06 (Extension Unit)
+bUnitID                  : 0x04 (ID 4)
+guidExtensionCode        : {63610682-5070-49AB-B8CC-B3855E8D221D}
+bNumControls             : 0x19 (25 Controls)
+bNrInPins                : 0x01 (1 Input Pin)
+baSourceID[1]            : 0x03
+bControlSize             : 0x04 (4 bytes)
+bmControls               : 0xFF, 0xFF, 0x77, 0x07
+ D0                      : 1  yes -  Vendor-Specific
+ D1                      : 1  yes -  Vendor-Specific
+ D2                      : 1  yes -  Vendor-Specific
+ D3                      : 1  yes -  Vendor-Specific
+ D4                      : 1  yes -  Vendor-Specific
+ D5                      : 1  yes -  Vendor-Specific
+ D6                      : 1  yes -  Vendor-Specific
+ D7                      : 1  yes -  Vendor-Specific
+ D8                      : 1  yes -  Vendor-Specific
+ D9                      : 1  yes -  Vendor-Specific
+ D10                     : 1  yes -  Vendor-Specific
+ D11                     : 1  yes -  Vendor-Specific
+ D12                     : 1  yes -  Vendor-Specific
+ D13                     : 1  yes -  Vendor-Specific
+ D14                     : 1  yes -  Vendor-Specific
+ D15                     : 1  yes -  Vendor-Specific
+ D16                     : 1  yes -  Vendor-Specific
+ D17                     : 1  yes -  Vendor-Specific
+ D18                     : 1  yes -  Vendor-Specific
+ D19                     : 0   no -  Vendor-Specific
+ D20                     : 1  yes -  Vendor-Specific
+ D21                     : 1  yes -  Vendor-Specific
+ D22                     : 1  yes -  Vendor-Specific
+ D23                     : 0   no -  Vendor-Specific
+ D24                     : 1  yes -  Vendor-Specific
+ D25                     : 1  yes -  Vendor-Specific
+ D26                     : 1  yes -  Vendor-Specific
+ D27                     : 0   no -  Vendor-Specific
+ D28                     : 0   no -  Vendor-Specific
+ D29                     : 0   no -  Vendor-Specific
+ D30                     : 0   no -  Vendor-Specific
+ D31                     : 0   no -  Vendor-Specific
+iExtension               : 0x00 (No String Descriptor)
+
+        ------- Video Control Output Terminal Descriptor ------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x24 (Video Control Interface)
+bDescriptorSubtype       : 0x03 (Output Terminal)
+bTerminalID              : 0x05 (5)
+wTerminalType            : 0x0101 (TT_STREAMING)
+bAssocTerminal           : 0x00 (Not associated with an Input Terminal)
+bSourceID                : 0x04 (4)
+iTerminal                : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x87 (Direction=IN EndpointID=7)
+bmAttributes             : 0x03 (TransferType=Interrupt)
+wMaxPacketSize           : 0x0010 (16 bytes)
+bInterval                : 0x08 (8 ms)
+
+        --- Class-specific VC Interrupt Endpoint Descriptor ---
+bLength                  : 0x05 (5 bytes)
+bDescriptorType          : 0x25 (Video Control Endpoint)
+bDescriptorSubtype       : 0x03 (Interrupt)
+wMaxTransferSize         : 0x0405 (1029 bytes)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x00
+bNumEndpoints            : 0x00 (Default Control Pipe only)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ---- VC-Specific VS Video Input Header Descriptor -----
+bLength                  : 0x0F (15 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x01 (Input Header)
+bNumFormats              : 0x02
+wTotalLength             : 0x007D (125 bytes)
+bEndpointAddress         : 0x81 (Direction=IN  EndpointID=1)
+bmInfo                   : 0x00 (Dynamic Format Change not supported)
+bTerminalLink            : 0x05 (Output Terminal ID 5)
+bStillCaptureMethod      : 0x01 (Still Capture Method 1)
+nbTriggerSupport         : 0x00 (Hardware Triggering not supported)
+bTriggerUsage            : 0x00 (Host will initiate still image capture)
+bControlSize             : 0x01 (1 byte each)
+Video Payload Format 1   : 0x04
+ D0                      : 0   no -  Key Frame Rate
+ D1                      : 0   no -  P Frame Rate
+ D2                      : 1  yes -  Compression Quality
+ D3                      : 0   no -  Compression Window Size
+ D4                      : 0   no -  Generate Key Frame
+ D5                      : 0   no -  Update Frame Segment
+ D6                      : 0   no -  Reserved
+ D7                      : 0   no -  Reserved
+Video Payload Format 2   : 0x00
+ D0                      : 0   no -  Key Frame Rate
+ D1                      : 0   no -  P Frame Rate
+ D2                      : 0   no -  Compression Quality
+ D3                      : 0   no -  Compression Window Size
+ D4                      : 0   no -  Generate Key Frame
+ D5                      : 0   no -  Update Frame Segment
+ D6                      : 0   no -  Reserved
+ D7                      : 0   no -  Reserved
+
+        ----- Video Streaming MJPEG Format Type Descriptor ----
+bLength                  : 0x0B (11 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x06 (Format MJPEG)
+bFormatIndex             : 0x01 (1)
+bNumFrameDescriptors     : 0x01 (1)
+bmFlags                  : 0x01 (Sample size is fixed)
+bDefaultFrameIndex       : 0x01 (1)
+bAspectRatioX            : 0x00
+bAspectRatioY            : 0x00
+bmInterlaceFlags         : 0x00
+ D0 IL stream or variable: 0 (no)
+ D1 Fields per frame     : 0 (2 fields)
+ D2 Field 1 first        : 0 (no)
+ D3 Reserved             : 0
+ D4..5 Field pattern     : 0 (Field 1 only)
+ D6..7 Display Mode      : 0 (Bob only)
+bCopyProtect             : 0x00 (No restrictions)
+
+        ----- Video Streaming MJPEG Frame Type Descriptor -----
+---> This is the Default (optimum) Frame index
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x07 (MJPEG Frame Type)
+bFrameIndex              : 0x01
+bmCapabilities           : 0x01
+wWidth                   : 0x00A0 (160)
+wHeight                  : 0x0078 (120)
+dwMinBitRate             : 0x008CA000 (9216000 bps -> 1.152 MB/s)
+dwMaxBitRate             : 0x008CA000 (9216000 bps -> 1.152 MB/s)
+dwDefaultFrameInterval   : 0x00051615 (33.3333 ms -> 30.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x00051615 (33.3333 ms -> 30.0000 fps)
+
+        ------- VS Color Matching Descriptor Descriptor -------
+bLength                  : 0x06 (6 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x0D (Color Matching)
+bColorPrimaries          : 0x01 (BT.709, sRGB)
+bTransferCharacteristics : 0x01 (BT.709)
+bMatrixCoefficients      : 0x04 (SMPTE 170M)
+
+        ------- VS Uncompressed Format Type Descriptor --------
+bLength                  : 0x1B (27 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x04 (Uncompressed Format Type)
+bFormatIndex             : 0x02 (2)
+bNumFrameDescriptors     : 0x01 (1 Frame Descriptor)
+guidFormat               : {32595559-0000-0010-8000-00AA00389B71} (MEDIASUBTYPE_YUY2)
+bBitsPerPixel            : 0x10 (16 bits per pixel)
+bDefaultFrameIndex       : 0x01 (Index 1)
+bAspectRatioX            : 0x00
+bAspectRatioY            : 0x00
+bmInterlaceFlags         : 0x00
+ D0 IL stream or variable: 0 (no)
+ D1 Fields per frame     : 0 (2 fields)
+ D2 Field 1 first        : 0 (no)
+ D3 Reserved             : 0
+ D4..5 Field pattern     : 0 (Field 1 only)
+ D6..7 Display Mode      : 0 (Bob only)
+bCopyProtect             : 0x00 (No restrictions)
+
+        -------- VS Uncompressed Frame Type Descriptor --------
+---> This is the Default (optimum) Frame index
+bLength                  : 0x1E (30 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x05 (Uncompressed Frame Type)
+bFrameIndex              : 0x01
+bmCapabilities           : 0x01
+wWidth                   : 0x00A0 (160)
+wHeight                  : 0x0078 (120)
+dwMinBitRate             : 0x00177000 (1536000 bps -> 192 KB/s)
+dwMaxBitRate             : 0x00177000 (1536000 bps -> 192 KB/s)
+dwDefaultFrameInterval   : 0x001E8480 (200.0000 ms -> 5.0000 fps)
+bFrameIntervalType       : 0x01 (1 discrete frame interval supported)
+adwFrameInterval[1]      : 0x001E8480 (200.0000 ms -> 5.0000 fps)
+
+        ------- VS Color Matching Descriptor Descriptor -------
+bLength                  : 0x06 (6 bytes)
+bDescriptorType          : 0x24 (Video Streaming Interface)
+bDescriptorSubtype       : 0x0D (Color Matching)
+bColorPrimaries          : 0x01 (BT.709, sRGB)
+bTransferCharacteristics : 0x01 (BT.709)
+bMatrixCoefficients      : 0x04 (SMPTE 170M)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x01
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x00C0 (192 bytes)
+bInterval                : 0x01 (1 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x02
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0180 (384 bytes)
+bInterval                : 0x01 (1 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x03
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0200 (512 bytes)
+bInterval                : 0x01 (1 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x04
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0280 (640 bytes)
+bInterval                : 0x01 (1 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x05
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x0320 (800 bytes)
+bInterval                : 0x01 (1 ms)
+
+        ---------------- Interface Descriptor -----------------
+bLength                  : 0x09 (9 bytes)
+bDescriptorType          : 0x04 (Interface Descriptor)
+bInterfaceNumber         : 0x01 (Interface 1)
+bAlternateSetting        : 0x06
+bNumEndpoints            : 0x01 (1 Endpoint)
+bInterfaceClass          : 0x0E (Video)
+bInterfaceSubClass       : 0x02 (Video Streaming)
+bInterfaceProtocol       : 0x00
+iInterface               : 0x00 (No String Descriptor)
+
+        ----------------- Endpoint Descriptor -----------------
+bLength                  : 0x07 (7 bytes)
+bDescriptorType          : 0x05 (Endpoint Descriptor)
+bEndpointAddress         : 0x81 (Direction=IN EndpointID=1)
+bmAttributes             : 0x05 (TransferType=Isochronous  SyncType=Asynchronous  EndpointType=Data)
+wMaxPacketSize           : 0x03B0 (944 bytes)
+bInterval                : 0x01 (1 ms)
+
+      ---------- Binary Object Store (BOS) Descriptor -----------
+bLength                  : 0x05 (5 bytes)
+bDescriptorType          : 0x0F (Binary Object Store)
+wTotalLength             : 0x0021 (33 bytes)
+bNumDeviceCaps           : 0x01
+
+        ----------- Platform Capabilities Descriptor -----------
+bLength                  : 0x1C (28 bytes)
+bDescriptorType          : 0x10 (Device Capability Descriptor)
+bDevCapabilityType       : 0x05 (Platform Capabilities)
+bReserved                : 0x00
+PlatformCapabilityUUID   : D8DD60DF-4589-4CC7-9CD2-659D9E648A9F (GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID)
+dwWindowsVersion         : 0x0A000000 (Windows V10.0 and higher)
+wMSOSDescSetTotalLength  : 0x00E8 (232 Bytes)
+bMS_VendorCode           : 0x01 (1)
+bAltEnumCode             : 0x00 (0)
+
+      -------------------- String Descriptors -------------------
+             ------ String Descriptor 0 ------
+bLength                  : 0x04 (4 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language ID[0]           : 0x0409 (English - United States)
+             ------ String Descriptor 1 ------
+bLength                  : 0x1C (28 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language 0x0409          : "SunplusIT Inc"
+             ------ String Descriptor 2 ------
+bLength                  : 0x2C (44 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language 0x0409          : "HP 430/435 FHD Webcam"
+             ------ String Descriptor 3 ------
+bLength                  : 0x16 (22 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language 0x0409          : "<REDACTED>"
+             ------ String Descriptor 4 ------
+bLength                  : 0x2C (44 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language 0x0409          : "HP 430/435 FHD Webcam"
+             ------ String Descriptor 6 ------
+bLength                  : 0x42 (66 bytes)
+bDescriptorType          : 0x03 (String Descriptor)
+Language 0x0409          : "HP 430/435 FHD Webcam microphone"

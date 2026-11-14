@@ -1,0 +1,8 @@
+# Firmware dumps are proprietary – never commit them
+*.bin
+*.img
+*.cab
+dumps/
+
+__pycache__/
+*.pyc
