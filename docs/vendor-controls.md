@@ -148,6 +148,10 @@ never show up as a GET_CUR change:
 
 Do not use Poly Lens's firmware-update function while experimenting.
 
+See [`usb-capture.md`](usb-capture.md) for the full step-by-step (interfaces,
+filters) and `tools/parse_uvc_capture.py`, which turns a `.pcapng` into a table
+of UVC/HID control transfers with the unit, selector and payload decoded.
+
 ### Method C — correlate with ASIC registers (advanced)
 
 Because `0x02`/`0x03` expose the ASIC register window, a change seen in Method A

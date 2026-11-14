@@ -46,6 +46,8 @@ windows/asic_read_win.py     Windows: EXPERIMENTAL read of the ASIC register spa
 windows/README.md            Windows usage (no Linux needed; needs comtypes)
 docs/vendor-controls.md      what the unit 3/4 vendor selectors are (and how to decode)
 docs/firmware-analysis.md    static analysis of the 128 KiB flash image
+docs/usb-capture.md          capture Poly Lens traffic (USBPcap) to decode the protocol
+tools/parse_uvc_capture.py   parse a .pcapng into a UVC/HID control-transfer table
 ```
 
 Linux is the most reliable host (see Quick start below). If you only have
