@@ -88,7 +88,7 @@ vendor code `0x01`).
 | Goal | Assessment |
 |---|---|
 | Custom host driver / tool (Linux, Windows, macOS) | **Easy.** Standard UVC/UAC; vendor XUs and HID channel identified. |
-| Firmware backup over USB (no soldering) | **Likely** via XU 4 `ReadAddr`/`ReadChunk`; unconfirmed. |
+| Firmware backup over USB (no soldering) | **Confirmed** via XU 4 `ReadAddr`/`ReadChunk` on Windows (read-only, no download mode). See [`windows-probe.md`](windows-probe.md). |
 | Modifying existing firmware (strings, formats, tuning tables) | **Plausible.** fwupd treats the protocol as unsigned (XOR-8 checksum only). Requires care. |
 | Writing new firmware from scratch | **Hard.** No SDK, no ISP/ROM documentation; probably 8051-based. |
 
