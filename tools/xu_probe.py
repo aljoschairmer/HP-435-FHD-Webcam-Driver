@@ -103,14 +103,22 @@ def probe_unit(xu: XU, unit: int) -> None:
             line += f"  — {label}"
         print(line)
 
-        # Only read GET_CUR for short, readable selectors, and never for the
-        # write-only download-enable path.
-        if length and length <= 8 and (info & 0x01) and sel not in (0x09, 0x0A):
-            try:
-                cur = xu.get_cur(unit, sel, length)
-                print(f"              cur = {cur.hex(' ')}")
-            except XUError as e:
-                print(f"              cur = <error: {e}>")
+        # Characterise short, readable selectors: CUR/MIN/MAX/RES/DEF. The
+        # ranges are the strongest clue to what an undocumented control means
+        # (e.g. 0..10000 vs 0..1 vs a byte string). Never touch the write-only
+        # download/stream path. These extra queries are a Linux advantage: the
+        # Windows KS path only exposes CUR.
+        from uvcxu import (UVC_GET_CUR, UVC_GET_MIN, UVC_GET_MAX,  # noqa: E402
+                           UVC_GET_RES, UVC_GET_DEF)
+        if length and length <= 16 and (info & 0x01) and sel not in (0x09, 0x0A):
+            for qname, q in (("cur", UVC_GET_CUR), ("min", UVC_GET_MIN),
+                             ("max", UVC_GET_MAX), ("res", UVC_GET_RES),
+                             ("def", UVC_GET_DEF)):
+                try:
+                    v = xu.get(unit, sel, q, length)
+                    print(f"              {qname} = {v.hex(' ')}")
+                except XUError:
+                    pass  # not all query types are supported per selector
 
 
 def main() -> int:

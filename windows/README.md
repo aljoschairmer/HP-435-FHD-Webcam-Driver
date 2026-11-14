@@ -60,6 +60,33 @@ py -3 windows\settings_win.py --set brightness 140
 py -3 windows\settings_win.py --set focus auto
 ```
 
+## Decoding the vendor controls
+
+The vendor selectors on units 3 and 4 are undocumented. Map them to features by
+watching which one changes when you change a setting:
+
+```
+py -3 windows\xu_watch_win.py --monitor
+```
+
+Then change one thing at a time (Poly Lens, the Camera app, or
+`settings_win.py --set ...`) and read off the selector that moves. Also supports
+`--save base.json` / `--diff base.json`.
+
+To do that correlation **automatically** — sweep every standard control and log
+which vendor selector responds:
+
+```
+py -3 windows\xu_autodecode_win.py
+```
+
+It drives each standard control to its min/max (and toggles auto), watching the
+unit 3/4 selectors, restores every control afterwards, and prints a
+control→selector map plus the selectors no standard control touched (the
+vendor/firmware-only ones). `--save report.json` keeps the full data. The image
+will flicker while it sweeps; close other camera apps first. See
+[`../docs/vendor-controls.md`](../docs/vendor-controls.md) for what is known.
+
 ## How it works
 
 | UVC concept | Windows mechanism |

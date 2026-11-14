@@ -40,7 +40,10 @@ windows/uvcxu_win.py         Windows helper: XU access via DirectShow IKsControl
 windows/xu_probe_win.py      Windows, read-only: probe XU controls
 windows/flash_dump_win.py    Windows, read-only: back up the flash via XU unit 4
 windows/settings_win.py      Windows: show/set standard UVC controls (image, lens)
+windows/xu_watch_win.py      Windows: watch vendor XU selectors to decode them
+windows/xu_autodecode_win.py Windows: auto-map standard controls to XU selectors
 windows/README.md            Windows usage (no Linux needed; needs comtypes)
+docs/vendor-controls.md      what the unit 3/4 vendor selectors are (and how to decode)
 ```
 
 Linux is the most reliable host (see Quick start below). If you only have
