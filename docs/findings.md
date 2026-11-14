@@ -16,7 +16,8 @@ descriptor set is in [`../descriptors/hp-435-usbtreeview.txt`](../descriptors/hp
 - PID pattern matches HP's sibling webcams: 320 FHD `03f0:654a`, 325 FHD `03f0:664a`
   (SunplusIT), 620/625 FHD `03f0:714a` (Alpha Imaging).
 - HP's datasheet lists the sensor as **OmniVision OV2735** and the management
-  software as **Poly Lens**.
+  software as **Poly Lens**. The firmware image confirms the sensor and names
+  the ISP as a **Sunplus SPCA2281D** — see [`firmware-analysis.md`](firmware-analysis.md).
 
 ## 2. Device descriptor
 

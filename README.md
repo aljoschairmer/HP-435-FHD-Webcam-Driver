@@ -44,6 +44,7 @@ windows/xu_watch_win.py      Windows: watch vendor XU selectors to decode them
 windows/xu_autodecode_win.py Windows: auto-map standard controls to XU selectors
 windows/README.md            Windows usage (no Linux needed; needs comtypes)
 docs/vendor-controls.md      what the unit 3/4 vendor selectors are (and how to decode)
+docs/firmware-analysis.md    static analysis of the 128 KiB flash image
 ```
 
 Linux is the most reliable host (see Quick start below). If you only have
